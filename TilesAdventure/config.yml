@@ -1,4 +1,7 @@
 name: Tiles Adventure
 width: 480
 height: 360
-mainScene: Main
+main: Main
+resources:
+  images:
+    Idle: Assets/Images/Main Characters/Virtual Guy/Idle (32x32).png

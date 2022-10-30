@@ -1,4 +1,5 @@
 #include "texture.h"
+#include "renderer/renderer.h"
 
 #include <SDL2/SDL_image.h>
 
@@ -68,9 +69,11 @@ SDL_Texture* TextureManager::load(const std::string& filePath, const SDL_Color& 
 
 	if (textures_.find(tag) != textures_.end())
 		return textures_[tag];
+
 	auto surface = IMG_Load(filePath.c_str());
 	SDL_SetColorKey(surface, SDL_TRUE, SDL_MapRGB(surface->format, colorkey.r, colorkey.g, colorkey.b));
 	textures_[tag] = SDL_CreateTextureFromSurface(Renderer::Get()->renderer_, surface);
+	
 	SDL_FreeSurface(surface);
 
 	return textures_[tag];

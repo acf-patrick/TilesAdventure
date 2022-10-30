@@ -104,7 +104,6 @@ namespace ECS {
 		{
 			// Getting transform
 			auto nTransform = node["Transform"];
-
 			if (nTransform)
 			{
 				auto& transform = e->getComponent<ECS::Transform>();
@@ -128,7 +127,6 @@ namespace ECS {
 
 			// Getting sprite
 			auto nSprite = node["Sprite"];
-
 			if (nSprite)
 			{
 				SDL_Color color;
@@ -144,6 +142,7 @@ namespace ECS {
 
 				auto t = nSprite["texture"].as<std::string>();
 				auto& sprite = useColorkey ? e->attach<ECS::Sprite>(t, color) : e->attach<ECS::Sprite>(t);
+
 				if (nSprite["source"])
 				{
 					auto src = nSprite["source"].as<std::vector<int>>();
@@ -182,6 +181,13 @@ namespace ECS {
 			if (n)
 				e->attachScript<SpriteRenderer>();
 
+			n = node["SpriteAnimator"];
+			if (n)
+			{
+				auto frames = n["frames"];
+				auto& animator = frames ? e->attachScript<SpriteAnimator>(frames.as<std::vector<int>>()) : e->attachScript<SpriteAnimator>();
+				animator.rate = n["rate"].as<int>();
+			}
 		}
 	}
 }

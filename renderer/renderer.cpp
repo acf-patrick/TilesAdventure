@@ -32,3 +32,9 @@ SDL_Renderer* Renderer::get()
 {
 	return renderer_;
 }
+
+void Renderer::clear()
+{
+	SDL_SetRenderDrawColor(renderer_, clearColor.r, clearColor.g, clearColor.b, clearColor.a);
+	SDL_RenderClear(renderer_);
+}

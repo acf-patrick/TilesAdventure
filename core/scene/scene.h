@@ -29,6 +29,7 @@ public:
         
     // Update and render scene
     void render(SDL_Renderer*);
+
     void update( Uint32 dt );
         
     // Getting all entities in the scene
@@ -40,4 +41,5 @@ public:
     // Load new scene
     bool load( const std::string& name );
         
+    friend class Game;
 };

@@ -6,10 +6,10 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
+#include "core/const.h"
 #include "core/ECS/entity.h"
 #include "texture/texture.h"
 #include "renderer/renderer.h"
-#include "core/const.h"
 #include "renderer/renderer.h"
 #include "core/ECS/component.h"
 #include "core/script/script.h"
@@ -24,41 +24,37 @@ enum class GameState
 };
 
 // Main game class
-class Game {
+class Game 
+{
+private:
+    // The main window
+    SDL_Window* window_;
 
-    private:
-        // The main window
-        SDL_Window* window_;
+    // The main renderer
+    Renderer renderer_;
 
-        // The main renderer
-        Renderer renderer_;
+    // Texture manager
+    TextureManager texture_;
 
-        // The instance of Game
-        static Game* instance;
+    // Event handler
+    EventHandler eventHandler_;
 
-        // The active scene
-        Scene* activeScene_;
+    // The active scene
+    Scene activeScene_;
 
-		// Event handler
-		EventHandler* eventHandler_;
+public:
+    Game(const std::string& config);
 
-    public:
-        Game(const std::string& config);
+    ~Game();
 
-        ~Game();
+    // Main loop
+    void run();
 
-        static Game* Get();
+    void update();
 
-        // Main loop
-        void run();
+    void render();
 
-        void manageEvent();
-
-        void update();
-
-        void render();
-
-        Uint32 last;
+    Uint32 last;
 
 };
 

@@ -1,5 +1,8 @@
 #include "event.h"
 
+#include <iostream>
+#include <SDL2/SDL.h>
+
 EventHandler* EventHandler::instance;
 
 EventHandler* EventHandler::Get()
@@ -9,17 +12,77 @@ EventHandler* EventHandler::Get()
 	return instance;
 }
 
+EventHandler::EventHandler()
+{
+	instance = this;
+}
+
+EventHandler::~EventHandler()
+{
+	for (auto joystick : joysticks_)
+		SDL_JoystickClose(joystick);
+}
+
+void EventHandler::init()
+{
+	auto joystickCount = SDL_NumJoysticks();
+	for (int i = 0; i < joystickCount; ++i)
+		joysticks_.emplace_back(SDL_JoystickOpen(i));
+}
+
 bool EventHandler::getKey(SDL_Keycode index)
 {
-	return keys[index];
+	return keys_[index];
+}
+
+bool EventHandler::getMouseButton(int buttons)
+{
+	return buttons & SDL_GetMouseState(NULL, NULL);
 }
 
 SDL_Point EventHandler::getMousePosition()
 {
-	return mousePosition;
+	SDL_Point pos;
+	SDL_GetMouseState(&pos.x, &pos.y);
+	return pos;
 }
 
-EventHandler::EventHandler()
+bool EventHandler::getJoystickButton(int joystickID, int buttonID)
 {
-	instance = this;
+	if (joysticks_.empty())
+	{
+		std::cerr << "No joystick attached!" << std::endl;
+		return false;
+	}
+
+	if (joystickID >= joysticks_.size())
+		return false;
+
+	auto joystick = joysticks_[joystickID];
+	SDL_JoystickUpdate();
+	return SDL_JoystickGetButton(joystick, buttonID);
+}
+
+void EventHandler::update()
+{
+    // Polling possibles events
+    SDL_Event event;
+	while (SDL_PollEvent(&event))
+	{
+		// If quitting game
+		if( event.type == SDL_QUIT )
+			exit( EXIT_SUCCESS );
+
+		if (event.type == SDL_KEYDOWN)
+		{
+			SDL_Keycode index = event.key.keysym.sym;
+			keys_[index] = true;
+		}
+		 
+		if (event.type == SDL_KEYUP)
+		{
+			SDL_Keycode index = event.key.keysym.sym;
+			keys_[index] = false;
+		}
+	}
 }

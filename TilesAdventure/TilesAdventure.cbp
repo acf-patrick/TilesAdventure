@@ -12,8 +12,16 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++17" />
 					<Add option="-g" />
+					<Add directory="../" />
+					<Add directory="../@dependencies" />
+					<Add directory="../@dependencies/yaml-cpp/include" />
 				</Compiler>
+				<Linker>
+					<Add option="-lSDL2 -lSDL2_image" />
+					<Add library="../@dependencies/yaml-cpp/build/libyaml-cpp.a" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/TilesAdventure" prefix_auto="1" extension_auto="1" />
@@ -25,6 +33,8 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-lSDL2 -lSDL2_image" />
+					<Add library="../@dependencies/yaml-cpp/build/libyaml-cpp.a" />
 				</Linker>
 			</Target>
 		</Build>
@@ -41,8 +51,11 @@
 		<Unit filename="../core/main.cpp" />
 		<Unit filename="../core/scene/scene.cpp" />
 		<Unit filename="../core/scene/scene.h" />
+		<Unit filename="../core/script/base.h" />
 		<Unit filename="../core/script/script.cpp" />
 		<Unit filename="../core/script/script.h" />
+		<Unit filename="../event/event.cpp" />
+		<Unit filename="../event/event.h" />
 		<Unit filename="../game/game.cpp" />
 		<Unit filename="../game/game.h" />
 		<Unit filename="../renderer/renderer.cpp" />

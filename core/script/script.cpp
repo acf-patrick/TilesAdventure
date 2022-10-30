@@ -4,6 +4,24 @@
 
 Script::list Script::instances;
 
+void Script::toggle(bool enable)
+{
+	if (enable == enabled_)
+		return;
+
+	if (enable)
+		onEnable();
+	else
+		onDisable();
+
+	enable = enabled_;
+}
+
+bool Script::isEnabled() const
+{
+	return enabled_;
+}
+
 Script::~Script()
 {
 	onRemove();
@@ -28,4 +46,14 @@ void Script::update(Uint32 dt)
 void Script::render(SDL_Renderer* renderer)
 {
 	// Override
+}
+
+void Script::onEnable()
+{
+	// Override
+}
+
+void Script::onDisable()
+{
+	// OVerride
 }

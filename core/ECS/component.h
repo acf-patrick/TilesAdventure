@@ -15,14 +15,14 @@ namespace ECS {
 
 	struct Sprite
 	{
-		Sprite(const std::string& path)
+		Sprite(const std::string& textureTag)
 		{
-			texture = TextureManager::Get()->load(path);
+			texture = TextureManager::Get()->get(textureTag);
 
 			if (!texture)
 			{
-				std::string error(path);
-				error += " not found!";
+				std::string error(textureTag);
+				error += " : texture not found!";
 				throw std::logic_error(error.c_str());
 			}
 
@@ -58,10 +58,10 @@ namespace ECS {
 		SDL_Point slice;
 
 		// Space between tiles (in pixels)
-		SDL_Point spacing;
+		SDL_Point spacing = { 0, 0 };
 
 		// Blank space around the image (in pixels)
-		SDL_Point margin;
+		SDL_Point margin = { 0, 0 };
 
 		// Index of the tile to be used
 		int index = 0;

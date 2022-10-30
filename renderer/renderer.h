@@ -13,8 +13,13 @@ public:
 
 	SDL_Renderer* get();
 
+	// Clear screen
+	void clear();
+
 	// Update screen
 	void update();
+
+	SDL_Color clearColor = { 0, 0, 0, 0xff };
 
 private:
 	static Renderer* instance;

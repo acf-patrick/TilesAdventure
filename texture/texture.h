@@ -3,9 +3,6 @@
 #include <map>
 #include <iostream>
 #include <SDL2/SDL.h>
-#include "renderer/renderer.h"
-
-class Renderer;
 
 // Manage texture Load/Unload/Retreiving
 class TextureManager
@@ -32,4 +29,6 @@ private:
 	TextureManager();
 
 	std::map<std::string, SDL_Texture*> textures_;
+
+	friend class Game;
 };

@@ -78,8 +78,9 @@ namespace ECS {
 	public:
 		void insertData(EntityID entity, T* component)
 		{
+			std::string name = typeid(T).name();
 			if (entityToIndex_.find(entity) != entityToIndex_.end())
-				throw std::out_of_range("Component added to same entity more than once.");
+				throw std::out_of_range(name + " : Component added to same entity more than once.");
 
 			// Put new entry at end and update the maps
 			size_t newIndex = size_;
@@ -91,8 +92,9 @@ namespace ECS {
 
 		void removeData(EntityID entity)
 		{
+			std::string name = typeid(T).name();
 			if (entityToIndex_.find(entity) == entityToIndex_.end())
-				throw std::out_of_range("Removing non-existent component.");
+				throw std::out_of_range(name + " : Removing non-existent component.");
 
 			// Copy element at end into deleted element's place to maintain density
 			size_t indexOfRemovedEntity = entityToIndex_[entity];
@@ -113,8 +115,9 @@ namespace ECS {
 
 		T* getData(EntityID entity)
 		{
+			std::string name = typeid(T).name();
 			if (entityToIndex_.find(entity) == entityToIndex_.end())
-				throw std::logic_error("Retrieving non-existent component.");
+				throw std::logic_error(name + " : Retrieving non-existent component.");
 
 			return componentArray_[entityToIndex_[entity]];
 		}

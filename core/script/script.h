@@ -1,123 +1,22 @@
 #pragma once
 
-#include <set>
-#include <vector>
-#include <SDL2/SDL.h>
+#include "./base.h"
 
-#include "core/ECS/entity.h"
-#include "core/scene/scene.h"
-#include "core/ECS/component.h"
-
-#include "event/event.h"
-
-class Game;
-
-// Base class for script objects
-class Script {
-    protected:
-        ECS::Entity* entity_;
-
-    public:
-        struct compare
-        {
-            bool operator()( const Script* s1, const Script* s2 ) const
-            {
-                auto e1 = s1->entity_;
-                auto e2 = s2->entity_;
-                size_t
-                z1 = e1->getComponent<ECS::Transform>().zIndex,
-                z2 = e2->getComponent<ECS::Transform>().zIndex;
-                return z1 < z2;
-            }
-        };
-        using list = std::multiset<Script*, compare>;
-
-        virtual ~Script();
-
-        // Called when script is about to be attached
-        virtual void onAttach();
-
-        // Called when script is about to be removed from entity
-        virtual void onRemove();
-
-        /**
-         * @brief Called between each frame
-         * @param dt Delta time between each call in milliseconds
-        */
-        virtual void update( Uint32 dt );
-
-        virtual void render( SDL_Renderer* );
-
-    private:
-        static list instances;
-
-    public:
-        template<typename T>
-        T& getComponent()
-        {
-            return entity_->getComponent<T>();
-        }
-
-        template<typename T>
-        void remove()
-        {
-            entity_->remove<T>();
-        }
-
-        template<typename T, typename... TArgs>
-        T& attachScript( TArgs&& ... args )
-        {
-            return entity_->attachScript<T>( std::forward<TArgs>( args )... );
-        }
-
-        template<typename T, typename... TArgs>
-        T& attach( TArgs&& ... args )
-        {
-            return entity_->attach<T>( std::forward<TArgs>( args )... );
-        }
-
-        template<typename T>
-        bool has() const
-        {
-            return entity_->has<T>();
-        }
-
-        template<typename... T>
-        bool hasAllOf() const
-        {
-            return entity_->hasAllOf<T...>();
-        }
-
-        template<typename... T>
-        bool hasNoneOf() const
-        {
-            return entity_->hasNoneOf<T...>();
-        }
-
-        template<typename... T>
-        bool hasAnyOf() const
-        {
-            return entity_->hasAnyOf<T...>();
-        }
-
-        friend struct compare;
-        friend class ECS::Entity;
-		friend class Scene;
-};
+#include <functional>
 
 namespace ECS {
     class SpriteRenderer : public Script
 	{
-            ECS::Sprite* sprite_;
-			ECS::Transform *transform;
+        Sprite* sprite_;
+        Transform *transform_;
 
     public:
         void onAttach() override
         {
-            auto& tmp = getComponent<ECS::Sprite>();
-            sprite_ = &tmp;
-			auto &t = getComponent<ECS::Transform>();
-			transform = &t;
+            auto& sprite = getComponent<Sprite>();
+            sprite_ = &sprite;
+			auto &transform = getComponent<Transform>();
+			transform_ = &transform;
         }
 
         void render(SDL_Renderer* renderer) override
@@ -133,8 +32,70 @@ namespace ECS {
                 src.y += sprite_->margin.y + y * sprite_->spacing.y;
             }
             else src = sprite_->source;
-            SDL_Rect dst = { transform->position.x, transform->position.y, src.w * transform->scale.x, src.h * transform->scale.y };
+            SDL_Rect dst = { transform_->position.x, transform_->position.y, src.w * transform_->scale.x, src.h * transform_->scale.y };
             SDL_RenderCopy(renderer, sprite_->texture, &src, &dst);
+        }
+    };
+
+    class SpriteAnimator : public Script
+    {
+        using Callback = std::function<void()>;
+        std::map<int, std::vector<Callback>> listeners_;
+
+        Uint32 elapsed_ = 0;
+        Sprite* sprite_;
+
+    public:
+		// Sprite index to draw from Sprite component
+		std::vector<int> frames;
+
+		// Frame per second
+		int rate = 1;
+
+    public:
+		SpriteAnimator(const std::vector<int>& frameList) :
+            frames(frameList)
+        {}
+
+        // Use all frames in spritesheet by default
+        SpriteAnimator() = default;
+
+        void onAttach() override
+        {
+            Sprite& sprite = getComponent<Sprite>();
+            sprite_ = &sprite;
+
+            if (frames.empty() and sprite.sliced)
+            {
+                SDL_Point total = { (sprite.source.w - sprite.source.x) / sprite.slice.x, (sprite.source.h - sprite.source.y) / sprite.slice.y };
+                for (int i = 0; i < total.x * total.y; ++i)
+                    frames.emplace_back(i);
+            }
+        }
+
+        void update(Uint32 dt) override
+        {
+            if (!sprite_->sliced)
+                return;
+
+            elapsed_ += dt;
+            auto frameCount = frames.size();
+            auto currentFrame = sprite_->index;
+            if (elapsed_ > 1000.0 / rate)
+            {
+                elapsed_ = 0;
+                currentFrame = (currentFrame + 1) % frameCount;
+
+                auto& listeners = listeners_[currentFrame];
+                for (auto listener : listeners)
+                    listener();
+            }
+            sprite_->index = currentFrame;
+        }
+
+        void addListener(int frame, const Callback& callback)
+        {
+            listeners_[frame].emplace_back(callback);
         }
     };
 }
