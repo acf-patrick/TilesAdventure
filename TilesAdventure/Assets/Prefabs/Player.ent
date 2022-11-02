@@ -1,5 +1,5 @@
 Sprite:
-    texture: Idle
+    texture: Main_Characters_Virtual_Guy_Idle
     slice: [32, 32]
 Transform:
     scale: [2, 2]

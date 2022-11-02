@@ -65,6 +65,7 @@ namespace ECS {
             Sprite& sprite = getComponent<Sprite>();
             sprite_ = &sprite;
 
+            // Computes all frames
             if (frames.empty() and sprite.sliced)
             {
                 SDL_Point total = { (sprite.source.w - sprite.source.x) / sprite.slice.x, (sprite.source.h - sprite.source.y) / sprite.slice.y };

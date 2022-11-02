@@ -44,7 +44,7 @@ namespace ECS {
 			source.x = source.y = 0;
 			SDL_QueryTexture(texture, NULL, NULL, &source.w, &source.h);
 		}
-
+		
 		// Use whole image if false
 		bool sliced = false;
 
