@@ -18,8 +18,7 @@ Scene::Scene()
 
 Scene::~Scene()
 {
-	for (auto [tag, entity]: entities_)
-		delete entity;
+	clear();
 }
 
 void Scene::render(SDL_Renderer* renderer)
@@ -46,18 +45,24 @@ ECS::Entity* Scene::getEntity(const std::string& tag)
 
 void Scene::load( const std::string& name )
 {
+	// No request pending
 	if (loadRequest_.empty())
 		loadRequest_ = name;
+}
+
+void Scene::clear()
+{
+    for( auto& i : entities_ )
+        delete i.second;
+	entities_.clear();
 }
 
 void Scene::load_(const std::string& name)
 {
     name_ = name;
-    
-    // Freeing memory
-    for( auto& i : entities_ )
-        delete i.second;
-        
+
+	clear();
+
     //  Loading YAML
     YAML::Node entities = YAML::LoadFile( SCENES_PATH + name + ".scn" );
     
@@ -85,9 +90,7 @@ void Scene::load_(const std::string& name)
 					ECS::Entity::Load(e, node);
 				}
 				else 
-				{
 					throw std::logic_error("Prefab file for " + prefab.as<std::string>() + " not found!");
-				}
 			}
 
 			if (entity["tag"])
@@ -106,5 +109,6 @@ void Scene::load_(const std::string& name)
 
 	std::cout << "Scene " << name << " successfully loaded" << std::endl;
 	
+	// Free queue
 	loadRequest_.clear();
 }

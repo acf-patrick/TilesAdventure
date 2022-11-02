@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1667155251 source:/home/patrick/TilesAdventure/core/ECS/ecs.cpp
+1667414597 source:/home/patrick/TilesAdventure/core/ECS/ecs.cpp
 	"ecs.h"
 	"entity.h"
 	"component.h"
@@ -13,7 +13,7 @@
 	<cstdint>
 	<unordered_map>
 
-1666630567 /home/patrick/TilesAdventure/core/ECS/entity.h
+1667414581 /home/patrick/TilesAdventure/core/ECS/entity.h
 	"ecs.h"
 	<yaml-cpp/yaml.h>
 
@@ -292,7 +292,7 @@
 	"./base.h"
 	<functional>
 
-1666630567 /home/patrick/TilesAdventure//core/ECS/entity.h
+1667414581 /home/patrick/TilesAdventure//core/ECS/entity.h
 	"ecs.h"
 	<yaml-cpp/yaml.h>
 
@@ -304,7 +304,7 @@
 	<cstdint>
 	<unordered_map>
 
-1667410927 /home/patrick/TilesAdventure//core/scene/scene.h
+1667415272 /home/patrick/TilesAdventure//core/scene/scene.h
 	<map>
 	<iostream>
 	<SDL2/SDL.h>
@@ -347,7 +347,7 @@
 	"core/script/script.h"
 	"core/scene/scene.h"
 
-1667408579 source:/home/patrick/TilesAdventure/core/scene/scene.cpp
+1667413498 source:/home/patrick/TilesAdventure/core/scene/scene.cpp
 	"core/scene/scene.h"
 	"core/script/script.h"
 
@@ -429,4 +429,11 @@
 	"core/scene/scene.h"
 	"core/ECS/component.h"
 	"event/event.h"
+
+1667413581 source:/home/patrick/TilesAdventure/client/entry.cpp
+	"core/ECS/entity.h"
+	"scripts/Switch.h"
+
+1667414603 /home/patrick/TilesAdventure/client/scripts/Switch.h
+	"core/script/script.h"
 

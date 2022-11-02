@@ -26,6 +26,8 @@ private:
 private:
     void load_(const std::string& name);
 
+    void clear();
+
     Scene();
 		
 public:

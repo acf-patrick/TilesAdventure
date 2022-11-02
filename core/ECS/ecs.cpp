@@ -3,9 +3,10 @@
 #include "component.h"
 #include "core/script/script.h"
 
-namespace ECS {
+namespace ECS
+{
 
-	EntityManager* EntityManager::instance_ = nullptr;
+	EntityManager *EntityManager::instance_ = nullptr;
 
 	EntityManager::EntityManager()
 	{
@@ -60,14 +61,14 @@ namespace ECS {
 		return signatures_[entity];
 	}
 
-	EntityManager* EntityManager::Get()
+	EntityManager *EntityManager::Get()
 	{
 		if (!instance_)
 			new EntityManager;
 		return instance_;
 	}
 
-	ComponentManager* ComponentManager::instance_ = nullptr;
+	ComponentManager *ComponentManager::instance_ = nullptr;
 
 	ComponentManager::ComponentManager()
 	{
@@ -75,7 +76,7 @@ namespace ECS {
 			instance_ = this;
 	}
 
-	ComponentManager* ComponentManager::Get()
+	ComponentManager *ComponentManager::Get()
 	{
 		if (!instance_)
 			new ComponentManager;
@@ -98,7 +99,7 @@ namespace ECS {
 		componentManager_->entityDestroyed(id_);
 	}
 
-	void Entity::Load(Entity* e, YAML::Node node)
+	void Entity::Load(Entity *e, YAML::Node node)
 	{
 		// Load components
 		{
@@ -106,7 +107,7 @@ namespace ECS {
 			auto nTransform = node["Transform"];
 			if (nTransform)
 			{
-				auto& transform = e->getComponent<ECS::Transform>();
+				auto &transform = e->getComponent<ECS::Transform>();
 				if (nTransform["position"])
 				{
 					auto pos = nTransform["position"].as<std::vector<double>>();
@@ -141,19 +142,19 @@ namespace ECS {
 				}
 
 				auto t = nSprite["texture"].as<std::string>();
-				auto& sprite = useColorkey ? e->attach<ECS::Sprite>(t, color) : e->attach<ECS::Sprite>(t);
+				auto &sprite = useColorkey ? e->attach<ECS::Sprite>(t, color) : e->attach<ECS::Sprite>(t);
 
 				if (nSprite["source"])
 				{
 					auto src = nSprite["source"].as<std::vector<int>>();
-					sprite.source = { src[0], src[1], src[2], src[3] };
+					sprite.source = {src[0], src[1], src[2], src[3]};
 				}
 
 				if (nSprite["slice"])
 				{
 					sprite.sliced = true;
 					auto slices = nSprite["slice"].as<std::vector<int>>();
-					sprite.slice = { slices[0], slices[1] };
+					sprite.slice = {slices[0], slices[1]};
 				}
 
 				if (nSprite["index"])
@@ -185,9 +186,12 @@ namespace ECS {
 			if (n)
 			{
 				auto frames = n["frames"];
-				auto& animator = frames ? e->attachScript<SpriteAnimator>(frames.as<std::vector<int>>()) : e->attachScript<SpriteAnimator>();
+				auto &animator = frames ? e->attachScript<SpriteAnimator>(frames.as<std::vector<int>>()) : e->attachScript<SpriteAnimator>();
 				animator.rate = n["rate"].as<int>();
 			}
 		}
+
+		// User loader
+		Deserialize(e, node);
 	}
 }
