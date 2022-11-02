@@ -66,4 +66,5 @@ namespace ECS {
 		// Index of the tile to be used
 		int index = 0;
 	};
+
 }

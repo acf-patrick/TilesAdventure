@@ -18,7 +18,8 @@ private:
 private:
 	void init();
 
-	void update();
+	// Got EXIT request if return false
+	bool update();
 
 	EventHandler();
 

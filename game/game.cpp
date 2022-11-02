@@ -53,7 +53,8 @@ void Game::run()
 
     while( state == GameState::RUNNING )
     {
-        eventHandler_.update();
+        if (!eventHandler_.update())
+            break;
         update();
         render();
     }

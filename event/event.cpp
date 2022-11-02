@@ -63,7 +63,7 @@ bool EventHandler::getJoystickButton(int joystickID, int buttonID)
 	return SDL_JoystickGetButton(joystick, buttonID);
 }
 
-void EventHandler::update()
+bool EventHandler::update()
 {
     // Polling possibles events
     SDL_Event event;
@@ -71,12 +71,15 @@ void EventHandler::update()
 	{
 		// If quitting game
 		if( event.type == SDL_QUIT )
-			exit( EXIT_SUCCESS );
+			return false;
 
 		if (event.type == SDL_KEYDOWN)
 		{
 			SDL_Keycode index = event.key.keysym.sym;
 			keys_[index] = true;
+
+			if (index == SDLK_ESCAPE)
+				return false;
 		}
 		 
 		if (event.type == SDL_KEYUP)
@@ -85,4 +88,6 @@ void EventHandler::update()
 			keys_[index] = false;
 		}
 	}
+
+	return true;
 }

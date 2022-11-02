@@ -34,6 +34,9 @@ void Scene::update( Uint32 dt )
 	for (auto script : Script::instances)
 		if (script->isEnabled())
 			script->update(dt);
+
+	if (!loadRequest_.empty())
+		load_(loadRequest_);
 }
 
 ECS::Entity* Scene::getEntity(const std::string& tag)
@@ -41,13 +44,13 @@ ECS::Entity* Scene::getEntity(const std::string& tag)
     return entities_[tag];
 }
 
-std::string createTag()
+void Scene::load( const std::string& name )
 {
-	static int n = 0;
-	return std::to_string(n++);
+	if (loadRequest_.empty())
+		loadRequest_ = name;
 }
 
-bool Scene::load( const std::string& name )
+void Scene::load_(const std::string& name)
 {
     name_ = name;
     
@@ -59,10 +62,7 @@ bool Scene::load( const std::string& name )
     YAML::Node entities = YAML::LoadFile( SCENES_PATH + name + ".scn" );
     
     if( !entities )
-    {
         throw std::logic_error( name + " : Scene not found!" );
-        return false;
-    }
     
 	if (entities)
 	{
@@ -105,4 +105,6 @@ bool Scene::load( const std::string& name )
 	}
 
 	std::cout << "Scene " << name << " successfully loaded" << std::endl;
+	
+	loadRequest_.clear();
 }

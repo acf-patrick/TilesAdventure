@@ -18,9 +18,14 @@ private:
     // All entities in the scene
     std::map<std::string, ECS::Entity*> entities_;
         
+    std::string loadRequest_; 
+
     //  The instance of the scene
     static Scene* instance;
-        
+
+private:
+    void load_(const std::string& name);
+
     Scene();
 		
 public:
@@ -39,7 +44,7 @@ public:
     static Scene* Get();
         
     // Load new scene
-    bool load( const std::string& name );
+    void load( const std::string& name );
         
     friend class Game;
 };
