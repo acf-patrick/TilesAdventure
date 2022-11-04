@@ -34,15 +34,14 @@ public:
 
     ~Scene();
         
-    // Update and render scene
     void render(SDL_Renderer*);
 
     void update( Uint32 dt );
         
-    // Getting all entities in the scene
+    // Get all entities within the scene
     ECS::Entity* getEntity(const std::string& tag);
 
-	// Getting the scene instance
+	// Get current Scene
     static Scene* Get();
         
     // Load new scene

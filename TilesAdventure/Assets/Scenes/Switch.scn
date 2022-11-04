@@ -1,8 +1,0 @@
-- Sprite:
-    texture: Main_Characters_Mask_Dude_Idle
-    slice: [32, 32]
-  Transform:
-    scale: [2, 2]
-  SpriteRenderer:
-  SpriteAnimator:
-    rate: 22

@@ -48,5 +48,6 @@
         "type_traits": "cpp",
         "tuple": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "python.analysis.typeCheckingMode": "basic"
 }

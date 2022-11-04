@@ -1,0 +1,127 @@
+#!/usr/bin/python3
+
+import os, sys
+
+def main():
+    if len(sys.argv) == 1:
+        return False
+
+    type = sys.argv[1]
+
+    # entrypoint
+    entry = "./client/entry.cpp"
+    
+    if type == "init":
+        # main folder
+        os.mkdir("./client")
+        os.mkdir("./client/scripts")
+
+        # init entrypoint
+        with open(entry, 'w') as file:
+            file.write("""\
+#include "core/ECS/entity.h"
+#include "components.h"
+
+void ECS::Entity::Deserialize(ECS::Entity* entity, YAML::Node node)
+{
+}
+""")
+
+        # components file
+        with open("./client/components.h", "w") as file:
+            file.write("""\
+#pragma once 
+
+namespace ECS {
+}""")
+        return True
+
+    if len(sys.argv) < 3:
+        return False
+
+    names = sys.argv[2:]
+    
+    if type != "component" and type != "script":
+        return False
+    
+    for name in names:
+        for c in name:
+            if (c < 'a' or 'z' < c) and (c < 'A' or 'Z' < c):
+                raise Exception("{} : invalid {} name".format(name, type))
+
+    if type == "component":
+        path = "./client/components.h"
+        if not os.path.exists(path):
+            return False
+
+        for name in names:
+            with open(path, "r+") as file:
+                content = file.read()
+                content = content[:content.rfind('}')] + """\
+    struct {}
+    {{
+        
+    }};
+
+}}""".format(name)
+
+                file.seek(0)
+                file.write(content)
+
+            with open(entry, "r+") as file:
+                content = file.read()
+                file.seek(0)
+                file.write(content.replace('{', """\
+{{
+    if (node["{0}"])
+        entity->attach<{0}>();
+""".format(name), 1))
+        
+    elif type == "script":
+        for name in names:
+            with open("./client/scripts/" + name + ".h", 'w') as file:
+                file.write("""\
+#include "core/script/script.h"
+
+class {} : public Script 
+{{
+public:
+    void onAttach() override
+    {{
+
+    }}
+
+    void update(Uint32 dt) override
+    {{
+
+    }}
+
+    void render(SDL_Renderer* renderer) override
+    {{
+
+    }}
+}};     
+""".format(name))
+
+            with open(entry, 'r+') as file:
+                content = file.read()
+                ret = content.find('\n', content.rfind('#'))
+                
+                content = content[:ret] + '\n#include "scripts/{}.h"'.format(name) + content[ret:]
+                content = content[:content.rfind('}')] + """\
+    if (node["{0}"])
+        entity->attachScript<{0}>();
+}}""".format(name)
+
+                file.seek(0)
+                file.write(content)
+
+    else:
+        return False
+
+def helper():
+    pass
+
+if __name__ == '__main__':
+    if not main():
+        helper()

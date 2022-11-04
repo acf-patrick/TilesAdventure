@@ -48,6 +48,8 @@ void Scene::load( const std::string& name )
 	// No request pending
 	if (loadRequest_.empty())
 		loadRequest_ = name;
+	else
+		std::cerr << "Another scene is already loading." << std::endl;
 }
 
 void Scene::clear()
@@ -68,44 +70,49 @@ void Scene::load_(const std::string& name)
     
     if( !entities )
         throw std::logic_error( name + " : Scene not found!" );
-    
-	if (entities)
+
+	bool cameraDefined = false;
+	for( auto entity : entities )
 	{
-		for( auto entity : entities )
+		auto prefab = entity["prefab"];
+		std::string tag;
+		ECS::Entity* e = new ECS::Entity;
+
+		if (prefab)
 		{
-			auto prefab = entity["prefab"];
-			std::string tag;
-			ECS::Entity* e = new ECS::Entity;
-
-			if (prefab)
+			auto file = PREFABS_PATH + prefab.as<std::string>() + ".ent";
+			YAML::Node node = YAML::LoadFile(file);
+			if (node)
 			{
-				auto file = PREFABS_PATH + prefab.as<std::string>() + ".ent";
-				YAML::Node node = YAML::LoadFile(file);
-				if (node)
-				{
-					if (node["tag"])
-						tag = node["tag"].as<std::string>();
-					else
-						tag = std::to_string(e->getID());
-					ECS::Entity::Load(e, node);
-				}
-				else 
-					throw std::logic_error("Prefab file for " + prefab.as<std::string>() + " not found!");
+				if (node["tag"])
+					tag = node["tag"].as<std::string>();
+				else
+					tag = std::to_string(e->getID());
+				ECS::Entity::Load(e, node);
 			}
-
-			if (entity["tag"])
-				tag = entity["tag"].as<std::string>();
-			else
-				tag = std::to_string(e->getID());
-
-			if (entities_.find(tag) != entities_.end())
-				tag += "#" + std::to_string(e->getID());
-			
-			entities_[tag] = e;
-
-			ECS::Entity::Load(e, entity);
+			else 
+				throw std::logic_error("Prefab file for " + prefab.as<std::string>() + " not found!");
 		}
+
+		if (entity["tag"])
+		{
+			tag = entity["tag"].as<std::string>();
+			if (tag == "main camera")
+				cameraDefined = true;
+		}
+		else
+			tag = std::to_string(e->getID());
+
+		if (entities_.find(tag) != entities_.end())
+			tag += "#" + std::to_string(e->getID());
+		
+		entities_[tag] = e;
+
+		ECS::Entity::Load(e, entity);
 	}
+
+	if (!cameraDefined)
+		entities_["main camera"] = new ECS::Entity;
 
 	std::cout << "Scene " << name << " successfully loaded" << std::endl;
 	
