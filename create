@@ -46,7 +46,7 @@ namespace ECS {
     
     for name in names:
         for c in name:
-            if (c < 'a' or 'z' < c) and (c < 'A' or 'Z' < c):
+            if (c < 'a' or 'z' < c) and (c < 'A' or 'Z' < c) and (c < '0' or '9' < c):
                 raise Exception("{} : invalid {} name".format(name, type))
 
     if type == "component":
@@ -111,16 +111,22 @@ public:
                 content = content[:content.rfind('}')] + """\
     if (node["{0}"])
         entity->attachScript<{0}>();
+
 }}""".format(name)
 
                 file.seek(0)
                 file.write(content)
 
-    else:
-        return False
+    return True
 
 def helper():
-    pass
+    print ("Script utility for script/component generation")
+    print ("  init : create needed folders/files")
+    print ("  script: generate script file and adds it to the deserializer function")
+    print ("  component: generate component inside components file and adds it to the deserializer function")
+    print ("\nUsage :")
+    print ("  ./create.py init")
+    print ("  ./create.py script FollowMouse Move")
 
 if __name__ == '__main__':
     if not main():
