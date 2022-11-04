@@ -21,6 +21,15 @@ namespace ECS {
 
         void render(SDL_Renderer* renderer) override
         {
+            SDL_Rect camera;
+            SDL_GetRendererOutputSize(renderer, &camera.w, &camera.h);
+
+            auto& cameraTransform = Scene::Get()->getEntity("camera")->getComponent<Transform>();
+            camera.x = cameraTransform.position.x;
+            camera.y = cameraTransform.position.y;
+            camera.w *= cameraTransform.scale.x;
+            camera.h *= cameraTransform.scale.y;
+
 			SDL_Rect src;
             if (sprite_->sliced)
             {
@@ -33,7 +42,14 @@ namespace ECS {
             }
             else src = sprite_->source;
             SDL_Rect dst = { transform_->position.x, transform_->position.y, src.w * transform_->scale.x, src.h * transform_->scale.y };
-            SDL_RenderCopy(renderer, sprite_->texture, &src, &dst);
+
+            SDL_Rect tmp;
+            if (SDL_IntersectRect(&camera, &dst, &tmp))
+            {
+                dst.x -= camera.x;
+                dst.y -= camera.y;
+                SDL_RenderCopy(renderer, sprite_->texture, &src, &dst);
+            }
         }
     };
 

@@ -288,7 +288,7 @@
 
 1666418701 /home/patrick/TilesAdventure//core/geometry/geometry.h
 
-1667406330 /home/patrick/TilesAdventure//core/script/script.h
+1667588238 /home/patrick/TilesAdventure//core/script/script.h
 	"./base.h"
 	<functional>
 
@@ -304,7 +304,7 @@
 	<cstdint>
 	<unordered_map>
 
-1667415272 /home/patrick/TilesAdventure//core/scene/scene.h
+1667545310 /home/patrick/TilesAdventure//core/scene/scene.h
 	<map>
 	<iostream>
 	<SDL2/SDL.h>
@@ -347,7 +347,7 @@
 	"core/script/script.h"
 	"core/scene/scene.h"
 
-1667413498 source:/home/patrick/TilesAdventure/core/scene/scene.cpp
+1667587933 source:/home/patrick/TilesAdventure/core/scene/scene.cpp
 	"core/scene/scene.h"
 	"core/script/script.h"
 
@@ -355,7 +355,7 @@
 	<algorithm>
 	"script.h"
 
-1667406330 /home/patrick/TilesAdventure/core/script/script.h
+1667588238 /home/patrick/TilesAdventure/core/script/script.h
 	"./base.h"
 	<functional>
 
@@ -430,10 +430,18 @@
 	"core/ECS/component.h"
 	"event/event.h"
 
-1667413581 source:/home/patrick/TilesAdventure/client/entry.cpp
+1667588529 source:/home/patrick/TilesAdventure/client/entry.cpp
 	"core/ECS/entity.h"
-	"scripts/Switch.h"
+	"components.h"
+	"scripts/MoveCamera.h"
 
 1667414603 /home/patrick/TilesAdventure/client/scripts/Switch.h
 	"core/script/script.h"
+
+1667587801 /home/patrick/TilesAdventure/client/components.h
+
+1667589030 /home/patrick/TilesAdventure/client/scripts/MoveCamera.h
+	"event/event.h"
+	"core/script/script.h"
+	"core/geometry/geometry.h"
 

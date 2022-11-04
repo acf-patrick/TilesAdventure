@@ -40,6 +40,8 @@ void Scene::update( Uint32 dt )
 
 ECS::Entity* Scene::getEntity(const std::string& tag)
 {
+	if (entities_.find(tag) == entities_.end())
+		throw std::logic_error(tag + " : entity not found!");
     return entities_[tag];
 }
 
@@ -97,7 +99,7 @@ void Scene::load_(const std::string& name)
 		if (entity["tag"])
 		{
 			tag = entity["tag"].as<std::string>();
-			if (tag == "main camera")
+			if (tag == "camera")
 				cameraDefined = true;
 		}
 		else
@@ -112,7 +114,7 @@ void Scene::load_(const std::string& name)
 	}
 
 	if (!cameraDefined)
-		entities_["main camera"] = new ECS::Entity;
+		entities_["camera"] = new ECS::Entity;
 
 	std::cout << "Scene " << name << " successfully loaded" << std::endl;
 	
