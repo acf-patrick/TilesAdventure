@@ -5,7 +5,6 @@
 #include <utility>
 #include <iostream>
 #include <yaml-cpp/yaml.h>
-#include <tileson/tileson.hpp>
 
 Game::Game(const std::string& config)
 {

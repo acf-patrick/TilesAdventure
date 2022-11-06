@@ -17,6 +17,10 @@ namespace ECS
 	public:
 		Entity();
 
+		Entity(const Entity&) = delete;
+
+		Entity(Entity&&) = delete;
+
 		~Entity();
 
 		static void Load(Entity *, YAML::Node);

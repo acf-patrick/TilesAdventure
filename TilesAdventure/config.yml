@@ -4,292 +4,293 @@ height: 360
 main: Main
 resources:
   images:
-    Background_Brown: Assets/Images/Background/Brown.png
-    Background_Gray: Assets/Images/Background/Gray.png
-    Background_Green: Assets/Images/Background/Green.png
-    Background_Pink: Assets/Images/Background/Pink.png
-    Background_Purple: Assets/Images/Background/Purple.png
-    Background_Yellow: Assets/Images/Background/Yellow.png
-    Dust_Particles_Fall_01: Assets/Images/Dust Particles/Fall 01.png
-    Dust_Particles_Fall_02: Assets/Images/Dust Particles/Fall 02.png
-    Dust_Particles_Fall_03: Assets/Images/Dust Particles/Fall 03.png
-    Dust_Particles_Fall_04: Assets/Images/Dust Particles/Fall 04.png
-    Dust_Particles_Fall_05: Assets/Images/Dust Particles/Fall 05.png
-    Dust_Particles_Jump_01: Assets/Images/Dust Particles/Jump 01.png
-    Dust_Particles_Jump_02: Assets/Images/Dust Particles/Jump 02.png
-    Dust_Particles_Jump_03: Assets/Images/Dust Particles/Jump 03.png
-    Dust_Particles_Jump_04: Assets/Images/Dust Particles/Jump 04.png
-    Dust_Particles_Jump_05: Assets/Images/Dust Particles/Jump 05.png
-    Dust_Particles_Jump_06: Assets/Images/Dust Particles/Jump 06.png
-    Dust_Particles_Run_01: Assets/Images/Dust Particles/Run 01.png
-    Dust_Particles_Run_02: Assets/Images/Dust Particles/Run 02.png
-    Dust_Particles_Run_03: Assets/Images/Dust Particles/Run 03.png
-    Dust_Particles_Run_04: Assets/Images/Dust Particles/Run 04.png
-    Dust_Particles_Run_05: Assets/Images/Dust Particles/Run 05.png
-    Enemies_AngryPig_Hit: Assets/Images/Enemies/AngryPig/Hit (36x30).png
-    Enemies_AngryPig_Hit_1: Assets/Images/Enemies/AngryPig/Hit 1 (36x30).png
-    Enemies_AngryPig_Hit_2: Assets/Images/Enemies/AngryPig/Hit 2 (36x30).png
-    Enemies_AngryPig_Idle: Assets/Images/Enemies/AngryPig/Idle (36x30).png
-    Enemies_AngryPig_Run: Assets/Images/Enemies/AngryPig/Run (36x30).png
-    Enemies_AngryPig_Walk: Assets/Images/Enemies/AngryPig/Walk (36x30).png
-    Enemies_Bat_Ceiling_In: Assets/Images/Enemies/Bat/Ceiling In (46x30).png
-    Enemies_Bat_Ceiling_Out: Assets/Images/Enemies/Bat/Ceiling Out (46x30).png
-    Enemies_Bat_Flying: Assets/Images/Enemies/Bat/Flying (46x30).png
-    Enemies_Bat_Hit: Assets/Images/Enemies/Bat/Hit (46x30).png
-    Enemies_Bat_Idle: Assets/Images/Enemies/Bat/Idle (46x30).png
-    Enemies_Bee_Attack: Assets/Images/Enemies/Bee/Attack (36x34).png
-    Enemies_Bee_Bullet: Assets/Images/Enemies/Bee/Bullet.png
-    Enemies_Bee_Bullet_Pieces: Assets/Images/Enemies/Bee/Bullet Pieces.png
-    Enemies_Bee_Hit: Assets/Images/Enemies/Bee/Hit (36x34).png
-    Enemies_Bee_Idle: Assets/Images/Enemies/Bee/Idle (36x34).png
-    Enemies_BlueBird_Flying: Assets/Images/Enemies/BlueBird/Flying (32x32).png
-    Enemies_BlueBird_Hit: Assets/Images/Enemies/BlueBird/Hit (32x32).png
-    Enemies_Bunny_Fall: Assets/Images/Enemies/Bunny/Fall (34x44).png
-    Enemies_Bunny_Fall: Assets/Images/Enemies/Bunny/Fall.png
-    Enemies_Bunny_Hit: Assets/Images/Enemies/Bunny/Hit (34x44).png
-    Enemies_Bunny_Idle: Assets/Images/Enemies/Bunny/Idle (34x44).png
-    Enemies_Bunny_Jump: Assets/Images/Enemies/Bunny/Jump (34x44).png
-    Enemies_Bunny_Jump: Assets/Images/Enemies/Bunny/Jump.png
-    Enemies_Bunny_Run: Assets/Images/Enemies/Bunny/Run (34x44).png
-    Enemies_Chameleon_Attack: Assets/Images/Enemies/Chameleon/Attack (84x38).png
-    Enemies_Chameleon_Hit: Assets/Images/Enemies/Chameleon/Hit (84x38).png
-    Enemies_Chameleon_Idle: Assets/Images/Enemies/Chameleon/Idle (84x38).png
-    Enemies_Chameleon_Run: Assets/Images/Enemies/Chameleon/Run (84x38).png
-    Enemies_Chicken_Hit: Assets/Images/Enemies/Chicken/Hit (32x34).png
-    Enemies_Chicken_Idle: Assets/Images/Enemies/Chicken/Idle (32x34).png
-    Enemies_Chicken_Run: Assets/Images/Enemies/Chicken/Run (32x34).png
-    Enemies_Duck_Fall: Assets/Images/Enemies/Duck/Fall (36x36).png
-    Enemies_Duck_Hit: Assets/Images/Enemies/Duck/Hit (36x36).png
-    Enemies_Duck_Idle: Assets/Images/Enemies/Duck/Idle (36x36).png
-    Enemies_Duck_Jump: Assets/Images/Enemies/Duck/Jump (36x36).png
-    Enemies_Duck_Jump_Anticipation: Assets/Images/Enemies/Duck/Jump Anticipation (36x36).png
-    Enemies_FatBird_Fall: Assets/Images/Enemies/FatBird/Fall (40x48).png
-    Enemies_FatBird_Ground: Assets/Images/Enemies/FatBird/Ground (40x48).png
-    Enemies_FatBird_Hit: Assets/Images/Enemies/FatBird/Hit (40x48).png
-    Enemies_FatBird_Idle: Assets/Images/Enemies/FatBird/Idle (40x48).png
-    Enemies_Ghost_Appear: Assets/Images/Enemies/Ghost/Appear (44x30).png
-    Enemies_Ghost_Desappear: Assets/Images/Enemies/Ghost/Desappear (44x30).png
-    Enemies_Ghost_Gost_Particles: Assets/Images/Enemies/Ghost/Gost Particles (48x16).png
-    Enemies_Ghost_Hit: Assets/Images/Enemies/Ghost/Hit (44x30).png
-    Enemies_Ghost_Idle: Assets/Images/Enemies/Ghost/Idle (44x30).png
-    Enemies_Mushroom_Hit: Assets/Images/Enemies/Mushroom/Hit (32x32).png
-    Enemies_Mushroom_Hit: Assets/Images/Enemies/Mushroom/Hit.png
-    Enemies_Mushroom_Idle: Assets/Images/Enemies/Mushroom/Idle (32x32).png
-    Enemies_Mushroom_Run: Assets/Images/Enemies/Mushroom/Run (32x32).png
-    Enemies_Plant_Attack: Assets/Images/Enemies/Plant/Attack (44x42).png
-    Enemies_Plant_Bullet: Assets/Images/Enemies/Plant/Bullet.png
-    Enemies_Plant_Bullet_Pieces: Assets/Images/Enemies/Plant/Bullet Pieces.png
-    Enemies_Plant_Hit: Assets/Images/Enemies/Plant/Hit (44x42).png
-    Enemies_Plant_Idle: Assets/Images/Enemies/Plant/Idle (44x42).png
-    Enemies_Radish_Hit: Assets/Images/Enemies/Radish/Hit (30x38).png
-    Enemies_Radish_Idle_1: Assets/Images/Enemies/Radish/Idle 1 (30x38).png
-    Enemies_Radish_Idle_2: Assets/Images/Enemies/Radish/Idle 2 (30x38).png
-    Enemies_Radish_Leafs: Assets/Images/Enemies/Radish/Leafs.png
-    Enemies_Radish_Run: Assets/Images/Enemies/Radish/Run (30x38).png
-    Enemies_Rino_Hit: Assets/Images/Enemies/Rino/Hit (52x34).png
-    Enemies_Rino_Hit_Wall: Assets/Images/Enemies/Rino/Hit Wall (52x34).png
-    Enemies_Rino_Idle: Assets/Images/Enemies/Rino/Idle (52x34).png
-    Enemies_Rino_Run: Assets/Images/Enemies/Rino/Run (52x34).png
-    Enemies_Rocks_Rock1_Hit: Assets/Images/Enemies/Rocks/Rock1_Hit.png
-    Enemies_Rocks_Rock1_Idle: Assets/Images/Enemies/Rocks/Rock1_Idle (38x34).png
-    Enemies_Rocks_Rock1_Run: Assets/Images/Enemies/Rocks/Rock1_Run (38x34).png
-    Enemies_Rocks_Rock2_Hit: Assets/Images/Enemies/Rocks/Rock2_Hit (32x28).png
-    Enemies_Rocks_Rock2_Idle: Assets/Images/Enemies/Rocks/Rock2_Idle (32x28).png
-    Enemies_Rocks_Rock2_Run: Assets/Images/Enemies/Rocks/Rock2_Run (32x28).png
-    Enemies_Rocks_Rock3_Hit: Assets/Images/Enemies/Rocks/Rock3_Hit (22x18).png
-    Enemies_Rocks_Rock3_Idle: Assets/Images/Enemies/Rocks/Rock3_Idle (22x18).png
-    Enemies_Rocks_Rock3_Run: Assets/Images/Enemies/Rocks/Rock3_Run (22x18).png
-    Enemies_Skull_Hit: Assets/Images/Enemies/Skull/Hit (52x54).png
-    Enemies_Skull_Hit_Wall_1: Assets/Images/Enemies/Skull/Hit Wall 1 (52x54).png
-    Enemies_Skull_Hit_Wall_2: Assets/Images/Enemies/Skull/Hit Wall 2 (52x54).png
-    Enemies_Skull_Idle_1: Assets/Images/Enemies/Skull/Idle 1 (52x54).png
-    Enemies_Skull_Idle_2: Assets/Images/Enemies/Skull/Idle 2 (52x54).png
-    Enemies_Skull_Orange_Particle: Assets/Images/Enemies/Skull/Orange Particle.png
-    Enemies_Skull_Red_Particle: Assets/Images/Enemies/Skull/Red Particle.png
-    Enemies_Slime_Hit: Assets/Images/Enemies/Slime/Hit (44x30).png
-    Enemies_Slime_Idle_Run: Assets/Images/Enemies/Slime/Idle-Run (44x30).png
-    Enemies_Slime_Particles: Assets/Images/Enemies/Slime/Particles (62x16).png
-    Enemies_Snail_Hit: Assets/Images/Enemies/Snail/Hit (38x24).png
-    Enemies_Snail_Idle: Assets/Images/Enemies/Snail/Idle (38x24).png
-    Enemies_Snail_Shell_Idle: Assets/Images/Enemies/Snail/Shell Idle (38x24).png
-    Enemies_Snail_Shell_Top_Hit: Assets/Images/Enemies/Snail/Shell Top Hit (38x24).png
-    Enemies_Snail_Shell_Wall_Hit: Assets/Images/Enemies/Snail/Shell Wall Hit (38x24).png
-    Enemies_Snail_Snail_without_shell: Assets/Images/Enemies/Snail/Snail without shell.png
-    Enemies_Snail_Walk: Assets/Images/Enemies/Snail/Walk (38x24).png
-    Enemies_Trunk_Attack: Assets/Images/Enemies/Trunk/Attack (64x32).png
-    Enemies_Trunk_Bullet: Assets/Images/Enemies/Trunk/Bullet.png
-    Enemies_Trunk_Bullet_Pieces: Assets/Images/Enemies/Trunk/Bullet Pieces.png
-    Enemies_Trunk_Hit: Assets/Images/Enemies/Trunk/Hit (64x32).png
-    Enemies_Trunk_Idle: Assets/Images/Enemies/Trunk/Idle (64x32).png
-    Enemies_Trunk_Run: Assets/Images/Enemies/Trunk/Run (64x32).png
-    Enemies_Turtle_Hit: Assets/Images/Enemies/Turtle/Hit (44x26).png
-    Enemies_Turtle_Idle_1: Assets/Images/Enemies/Turtle/Idle 1 (44x26).png
-    Enemies_Turtle_Idle_2: Assets/Images/Enemies/Turtle/Idle 2 (44x26).png
-    Enemies_Turtle_Spikes_in: Assets/Images/Enemies/Turtle/Spikes in (44x26).png
-    Enemies_Turtle_Spikes_out: Assets/Images/Enemies/Turtle/Spikes out (44x26).png
-    Items_Boxes_Box1_Break: Assets/Images/Items/Boxes/Box1/Break.png
-    Items_Boxes_Box1_Hit: Assets/Images/Items/Boxes/Box1/Hit (28x24).png
-    Items_Boxes_Box1_Idle: Assets/Images/Items/Boxes/Box1/Idle.png
-    Items_Boxes_Box2_Break: Assets/Images/Items/Boxes/Box2/Break.png
-    Items_Boxes_Box2_Hit: Assets/Images/Items/Boxes/Box2/Hit (28x24).png
-    Items_Boxes_Box2_Idle: Assets/Images/Items/Boxes/Box2/Idle.png
-    Items_Boxes_Box3_Break: Assets/Images/Items/Boxes/Box3/Break.png
-    Items_Boxes_Box3_Hit: Assets/Images/Items/Boxes/Box3/Hit (28x24).png
-    Items_Boxes_Box3_Idle: Assets/Images/Items/Boxes/Box3/Idle.png
-    Items_Checkpoints_Checkpoint_Checkpoint: Assets/Images/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle) (64x64).png
-    Items_Checkpoints_Checkpoint_Checkpoint: Assets/Images/Items/Checkpoints/Checkpoint/Checkpoint (Flag Out) (64x64).png
-    Items_Checkpoints_Checkpoint_Checkpoint: Assets/Images/Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png
-    Items_Checkpoints_End_End: Assets/Images/Items/Checkpoints/End/End (Idle).png
-    Items_Checkpoints_End_End: Assets/Images/Items/Checkpoints/End/End (Pressed) (64x64).png
-    Items_Checkpoints_Start_Start: Assets/Images/Items/Checkpoints/Start/Start (Idle).png
-    Items_Checkpoints_Start_Start: Assets/Images/Items/Checkpoints/Start/Start (Moving) (64x64).png
-    Items_Fruits_Apple: Assets/Images/Items/Fruits/Apple.png
-    Items_Fruits_Bananas: Assets/Images/Items/Fruits/Bananas.png
-    Items_Fruits_Cherries: Assets/Images/Items/Fruits/Cherries.png
-    Items_Fruits_Collected: Assets/Images/Items/Fruits/Collected.png
-    Items_Fruits_Kiwi: Assets/Images/Items/Fruits/Kiwi.png
-    Items_Fruits_Melon: Assets/Images/Items/Fruits/Melon.png
-    Items_Fruits_Orange: Assets/Images/Items/Fruits/Orange.png
-    Items_Fruits_Pineapple: Assets/Images/Items/Fruits/Pineapple.png
-    Items_Fruits_Strawberry: Assets/Images/Items/Fruits/Strawberry.png
-    Main_Characters_Appearing: Assets/Images/Main Characters/Appearing (96x96).png
-    Main_Characters_Desappearing: Assets/Images/Main Characters/Desappearing (96x96).png
-    Main_Characters_Mask_Dude_Double_Jump: Assets/Images/Main Characters/Mask Dude/Double Jump (32x32).png
-    Main_Characters_Mask_Dude_Fall: Assets/Images/Main Characters/Mask Dude/Fall (32x32).png
-    Main_Characters_Mask_Dude_Hit: Assets/Images/Main Characters/Mask Dude/Hit (32x32).png
-    Main_Characters_Mask_Dude_Idle: Assets/Images/Main Characters/Mask Dude/Idle (32x32).png
-    Main_Characters_Mask_Dude_Jump: Assets/Images/Main Characters/Mask Dude/Jump (32x32).png
-    Main_Characters_Mask_Dude_Run: Assets/Images/Main Characters/Mask Dude/Run (32x32).png
-    Main_Characters_Mask_Dude_Wall_Jump: Assets/Images/Main Characters/Mask Dude/Wall Jump (32x32).png
-    Main_Characters_Ninja_Frog_Double_Jump: Assets/Images/Main Characters/Ninja Frog/Double Jump (32x32).png
-    Main_Characters_Ninja_Frog_Fall: Assets/Images/Main Characters/Ninja Frog/Fall (32x32).png
-    Main_Characters_Ninja_Frog_Hit: Assets/Images/Main Characters/Ninja Frog/Hit (32x32).png
-    Main_Characters_Ninja_Frog_Idle: Assets/Images/Main Characters/Ninja Frog/Idle (32x32).png
-    Main_Characters_Ninja_Frog_Jump: Assets/Images/Main Characters/Ninja Frog/Jump (32x32).png
-    Main_Characters_Ninja_Frog_Run: Assets/Images/Main Characters/Ninja Frog/Run (32x32).png
-    Main_Characters_Ninja_Frog_Wall_Jump: Assets/Images/Main Characters/Ninja Frog/Wall Jump (32x32).png
-    Main_Characters_Pink_Man_Double_Jump: Assets/Images/Main Characters/Pink Man/Double Jump (32x32).png
-    Main_Characters_Pink_Man_Fall: Assets/Images/Main Characters/Pink Man/Fall (32x32).png
-    Main_Characters_Pink_Man_Hit: Assets/Images/Main Characters/Pink Man/Hit (32x32).png
-    Main_Characters_Pink_Man_Idle: Assets/Images/Main Characters/Pink Man/Idle (32x32).png
-    Main_Characters_Pink_Man_Jump: Assets/Images/Main Characters/Pink Man/Jump (32x32).png
-    Main_Characters_Pink_Man_Run: Assets/Images/Main Characters/Pink Man/Run (32x32).png
-    Main_Characters_Pink_Man_Wall_Jump: Assets/Images/Main Characters/Pink Man/Wall Jump (32x32).png
-    Main_Characters_Virtual_Guy_Double_Jump: Assets/Images/Main Characters/Virtual Guy/Double Jump (32x32).png
-    Main_Characters_Virtual_Guy_Fall: Assets/Images/Main Characters/Virtual Guy/Fall (32x32).png
-    Main_Characters_Virtual_Guy_Hit: Assets/Images/Main Characters/Virtual Guy/Hit (32x32).png
-    Main_Characters_Virtual_Guy_Idle: Assets/Images/Main Characters/Virtual Guy/Idle (32x32).png
-    Main_Characters_Virtual_Guy_Jump: Assets/Images/Main Characters/Virtual Guy/Jump (32x32).png
-    Main_Characters_Virtual_Guy_Run: Assets/Images/Main Characters/Virtual Guy/Run (32x32).png
-    Main_Characters_Virtual_Guy_Wall_Jump: Assets/Images/Main Characters/Virtual Guy/Wall Jump (32x32).png
-    Menu_Buttons_Achievements: Assets/Images/Menu/Buttons/Achievements.png
-    Menu_Buttons_Back: Assets/Images/Menu/Buttons/Back.png
-    Menu_Buttons_Close: Assets/Images/Menu/Buttons/Close.png
-    Menu_Buttons_Leaderboard: Assets/Images/Menu/Buttons/Leaderboard.png
-    Menu_Buttons_Levels: Assets/Images/Menu/Buttons/Levels.png
-    Menu_Buttons_Next: Assets/Images/Menu/Buttons/Next.png
-    Menu_Buttons_Play: Assets/Images/Menu/Buttons/Play.png
-    Menu_Buttons_Previous: Assets/Images/Menu/Buttons/Previous.png
-    Menu_Buttons_Restart: Assets/Images/Menu/Buttons/Restart.png
-    Menu_Buttons_Settings: Assets/Images/Menu/Buttons/Settings.png
-    Menu_Buttons_Volume: Assets/Images/Menu/Buttons/Volume.png
-    Menu_Levels_01: Assets/Images/Menu/Levels/01.png
-    Menu_Levels_02: Assets/Images/Menu/Levels/02.png
-    Menu_Levels_03: Assets/Images/Menu/Levels/03.png
-    Menu_Levels_04: Assets/Images/Menu/Levels/04.png
-    Menu_Levels_05: Assets/Images/Menu/Levels/05.png
-    Menu_Levels_06: Assets/Images/Menu/Levels/06.png
-    Menu_Levels_07: Assets/Images/Menu/Levels/07.png
-    Menu_Levels_08: Assets/Images/Menu/Levels/08.png
-    Menu_Levels_09: Assets/Images/Menu/Levels/09.png
-    Menu_Levels_10: Assets/Images/Menu/Levels/10.png
-    Menu_Levels_11: Assets/Images/Menu/Levels/11.png
-    Menu_Levels_12: Assets/Images/Menu/Levels/12.png
-    Menu_Levels_13: Assets/Images/Menu/Levels/13.png
-    Menu_Levels_14: Assets/Images/Menu/Levels/14.png
-    Menu_Levels_15: Assets/Images/Menu/Levels/15.png
-    Menu_Levels_16: Assets/Images/Menu/Levels/16.png
-    Menu_Levels_17: Assets/Images/Menu/Levels/17.png
-    Menu_Levels_18: Assets/Images/Menu/Levels/18.png
-    Menu_Levels_19: Assets/Images/Menu/Levels/19.png
-    Menu_Levels_20: Assets/Images/Menu/Levels/20.png
-    Menu_Levels_21: Assets/Images/Menu/Levels/21.png
-    Menu_Levels_22: Assets/Images/Menu/Levels/22.png
-    Menu_Levels_23: Assets/Images/Menu/Levels/23.png
-    Menu_Levels_24: Assets/Images/Menu/Levels/24.png
-    Menu_Levels_25: Assets/Images/Menu/Levels/25.png
-    Menu_Levels_26: Assets/Images/Menu/Levels/26.png
-    Menu_Levels_27: Assets/Images/Menu/Levels/27.png
-    Menu_Levels_28: Assets/Images/Menu/Levels/28.png
-    Menu_Levels_29: Assets/Images/Menu/Levels/29.png
-    Menu_Levels_30: Assets/Images/Menu/Levels/30.png
-    Menu_Levels_31: Assets/Images/Menu/Levels/31.png
-    Menu_Levels_32: Assets/Images/Menu/Levels/32.png
-    Menu_Levels_33: Assets/Images/Menu/Levels/33.png
-    Menu_Levels_34: Assets/Images/Menu/Levels/34.png
-    Menu_Levels_35: Assets/Images/Menu/Levels/35.png
-    Menu_Levels_36: Assets/Images/Menu/Levels/36.png
-    Menu_Levels_37: Assets/Images/Menu/Levels/37.png
-    Menu_Levels_38: Assets/Images/Menu/Levels/38.png
-    Menu_Levels_39: Assets/Images/Menu/Levels/39.png
-    Menu_Levels_40: Assets/Images/Menu/Levels/40.png
-    Menu_Levels_41: Assets/Images/Menu/Levels/41.png
-    Menu_Levels_42: Assets/Images/Menu/Levels/42.png
-    Menu_Levels_43: Assets/Images/Menu/Levels/43.png
-    Menu_Levels_44: Assets/Images/Menu/Levels/44.png
-    Menu_Levels_45: Assets/Images/Menu/Levels/45.png
-    Menu_Levels_46: Assets/Images/Menu/Levels/46.png
-    Menu_Levels_47: Assets/Images/Menu/Levels/47.png
-    Menu_Levels_48: Assets/Images/Menu/Levels/48.png
-    Menu_Levels_49: Assets/Images/Menu/Levels/49.png
-    Menu_Levels_50: Assets/Images/Menu/Levels/50.png
-    Menu_Text_Text: Assets/Images/Menu/Text/Text (Black) (8x10).png
-    Menu_Text_Text: Assets/Images/Menu/Text/Text (White) (8x10).png
-    Other_Confetti: Assets/Images/Other/Confetti (16x16).png
-    Other_Dust_Particle: Assets/Images/Other/Dust Particle.png
-    Other_Shadow: Assets/Images/Other/Shadow.png
-    Other_Transition: Assets/Images/Other/Transition.png
-    Terrain_Terrain: Assets/Images/Terrain/Terrain (16x16).png
-    Traps_Arrow_Hit: Assets/Images/Traps/Arrow/Hit (18x18).png
-    Traps_Arrow_Idle: Assets/Images/Traps/Arrow/Idle (18x18).png
-    Traps_Blocks_HitSide: Assets/Images/Traps/Blocks/HitSide (22x22).png
-    Traps_Blocks_HitTop: Assets/Images/Traps/Blocks/HitTop (22x22).png
-    Traps_Blocks_Idle: Assets/Images/Traps/Blocks/Idle.png
-    Traps_Blocks_Part_1: Assets/Images/Traps/Blocks/Part 1 (22x22).png
-    Traps_Blocks_Part_2: Assets/Images/Traps/Blocks/Part 2 (22x22).png
-    Traps_Falling_Platforms_Off: Assets/Images/Traps/Falling Platforms/Off.png
-    Traps_Falling_Platforms_On: Assets/Images/Traps/Falling Platforms/On (32x10).png
-    Traps_Fan_Off: Assets/Images/Traps/Fan/Off.png
-    Traps_Fan_On: Assets/Images/Traps/Fan/On (24x8).png
-    Traps_Fire_Hit: Assets/Images/Traps/Fire/Hit (16x32).png
-    Traps_Fire_Off: Assets/Images/Traps/Fire/Off.png
-    Traps_Fire_On: Assets/Images/Traps/Fire/On (16x32).png
-    Traps_Platforms_Brown_Off: Assets/Images/Traps/Platforms/Brown Off.png
-    Traps_Platforms_Brown_On: Assets/Images/Traps/Platforms/Brown On (32x8).png
-    Traps_Platforms_Chain: Assets/Images/Traps/Platforms/Chain.png
-    Traps_Platforms_Grey_Off: Assets/Images/Traps/Platforms/Grey Off.png
-    Traps_Platforms_Grey_On: Assets/Images/Traps/Platforms/Grey On (32x8).png
-    Traps_Rock_Head_Blink: Assets/Images/Traps/Rock Head/Blink (42x42).png
-    Traps_Rock_Head_Bottom_Hit: Assets/Images/Traps/Rock Head/Bottom Hit (42x42).png
-    Traps_Rock_Head_Idle: Assets/Images/Traps/Rock Head/Idle.png
-    Traps_Rock_Head_Left_Hit: Assets/Images/Traps/Rock Head/Left Hit (42x42).png
-    Traps_Rock_Head_Right_Hit: Assets/Images/Traps/Rock Head/Right Hit (42x42).png
-    Traps_Rock_Head_Top_Hit: Assets/Images/Traps/Rock Head/Top Hit (42x42).png
-    Traps_Sand_Mud_Ice_Ice_Particle: Assets/Images/Traps/Sand Mud Ice/Ice Particle.png
-    Traps_Sand_Mud_Ice_Mud_Particle: Assets/Images/Traps/Sand Mud Ice/Mud Particle.png
-    Traps_Sand_Mud_Ice_Sand_Mud_Ice: Assets/Images/Traps/Sand Mud Ice/Sand Mud Ice (16x6).png
-    Traps_Sand_Mud_Ice_Sand_Particle: Assets/Images/Traps/Sand Mud Ice/Sand Particle.png
-    Traps_Saw_Chain: Assets/Images/Traps/Saw/Chain.png
-    Traps_Saw_Off: Assets/Images/Traps/Saw/Off.png
-    Traps_Saw_On: Assets/Images/Traps/Saw/On (38x38).png
-    Traps_Spike_Head_Blink: Assets/Images/Traps/Spike Head/Blink (54x52).png
-    Traps_Spike_Head_Bottom_Hit: Assets/Images/Traps/Spike Head/Bottom Hit (54x52).png
-    Traps_Spike_Head_Idle: Assets/Images/Traps/Spike Head/Idle.png
-    Traps_Spike_Head_Left_Hit: Assets/Images/Traps/Spike Head/Left Hit (54x52).png
-    Traps_Spike_Head_Right_Hit: Assets/Images/Traps/Spike Head/Right Hit (54x52).png
-    Traps_Spike_Head_Top_Hit: Assets/Images/Traps/Spike Head/Top Hit (54x52).png
-    Traps_Spiked_Ball_Chain: Assets/Images/Traps/Spiked Ball/Chain.png
-    Traps_Spiked_Ball_Spiked_Ball: Assets/Images/Traps/Spiked Ball/Spiked Ball.png
-    Traps_Spikes_Idle: Assets/Images/Traps/Spikes/Idle.png
-    Traps_Trampoline_Idle: Assets/Images/Traps/Trampoline/Idle.png
-    Traps_Trampoline_Jump: Assets/Images/Traps/Trampoline/Jump (28x28).png
+    Background_Blue: Background/Blue.png
+    Background_Brown: Background/Brown.png
+    Background_Gray: Background/Gray.png
+    Background_Green: Background/Green.png
+    Background_Pink: Background/Pink.png
+    Background_Purple: Background/Purple.png
+    Background_Yellow: Background/Yellow.png
+    Dust_Particles_Fall_01: Dust Particles/Fall 01.png
+    Dust_Particles_Fall_02: Dust Particles/Fall 02.png
+    Dust_Particles_Fall_03: Dust Particles/Fall 03.png
+    Dust_Particles_Fall_04: Dust Particles/Fall 04.png
+    Dust_Particles_Fall_05: Dust Particles/Fall 05.png
+    Dust_Particles_Jump_01: Dust Particles/Jump 01.png
+    Dust_Particles_Jump_02: Dust Particles/Jump 02.png
+    Dust_Particles_Jump_03: Dust Particles/Jump 03.png
+    Dust_Particles_Jump_04: Dust Particles/Jump 04.png
+    Dust_Particles_Jump_05: Dust Particles/Jump 05.png
+    Dust_Particles_Jump_06: Dust Particles/Jump 06.png
+    Dust_Particles_Run_01: Dust Particles/Run 01.png
+    Dust_Particles_Run_02: Dust Particles/Run 02.png
+    Dust_Particles_Run_03: Dust Particles/Run 03.png
+    Dust_Particles_Run_04: Dust Particles/Run 04.png
+    Dust_Particles_Run_05: Dust Particles/Run 05.png
+    Enemies_AngryPig_Hit: Enemies/AngryPig/Hit (36x30).png
+    Enemies_AngryPig_Hit_1: Enemies/AngryPig/Hit 1 (36x30).png
+    Enemies_AngryPig_Hit_2: Enemies/AngryPig/Hit 2 (36x30).png
+    Enemies_AngryPig_Idle: Enemies/AngryPig/Idle (36x30).png
+    Enemies_AngryPig_Run: Enemies/AngryPig/Run (36x30).png
+    Enemies_AngryPig_Walk: Enemies/AngryPig/Walk (36x30).png
+    Enemies_Bat_Ceiling_In: Enemies/Bat/Ceiling In (46x30).png
+    Enemies_Bat_Ceiling_Out: Enemies/Bat/Ceiling Out (46x30).png
+    Enemies_Bat_Flying: Enemies/Bat/Flying (46x30).png
+    Enemies_Bat_Hit: Enemies/Bat/Hit (46x30).png
+    Enemies_Bat_Idle: Enemies/Bat/Idle (46x30).png
+    Enemies_Bee_Attack: Enemies/Bee/Attack (36x34).png
+    Enemies_Bee_Bullet: Enemies/Bee/Bullet.png
+    Enemies_Bee_Bullet_Pieces: Enemies/Bee/Bullet Pieces.png
+    Enemies_Bee_Hit: Enemies/Bee/Hit (36x34).png
+    Enemies_Bee_Idle: Enemies/Bee/Idle (36x34).png
+    Enemies_BlueBird_Flying: Enemies/BlueBird/Flying (32x32).png
+    Enemies_BlueBird_Hit: Enemies/BlueBird/Hit (32x32).png
+    Enemies_Bunny_Fall: Enemies/Bunny/Fall (34x44).png
+    Enemies_Bunny_Fall: Enemies/Bunny/Fall.png
+    Enemies_Bunny_Hit: Enemies/Bunny/Hit (34x44).png
+    Enemies_Bunny_Idle: Enemies/Bunny/Idle (34x44).png
+    Enemies_Bunny_Jump: Enemies/Bunny/Jump (34x44).png
+    Enemies_Bunny_Jump: Enemies/Bunny/Jump.png
+    Enemies_Bunny_Run: Enemies/Bunny/Run (34x44).png
+    Enemies_Chameleon_Attack: Enemies/Chameleon/Attack (84x38).png
+    Enemies_Chameleon_Hit: Enemies/Chameleon/Hit (84x38).png
+    Enemies_Chameleon_Idle: Enemies/Chameleon/Idle (84x38).png
+    Enemies_Chameleon_Run: Enemies/Chameleon/Run (84x38).png
+    Enemies_Chicken_Hit: Enemies/Chicken/Hit (32x34).png
+    Enemies_Chicken_Idle: Enemies/Chicken/Idle (32x34).png
+    Enemies_Chicken_Run: Enemies/Chicken/Run (32x34).png
+    Enemies_Duck_Fall: Enemies/Duck/Fall (36x36).png
+    Enemies_Duck_Hit: Enemies/Duck/Hit (36x36).png
+    Enemies_Duck_Idle: Enemies/Duck/Idle (36x36).png
+    Enemies_Duck_Jump: Enemies/Duck/Jump (36x36).png
+    Enemies_Duck_Jump_Anticipation: Enemies/Duck/Jump Anticipation (36x36).png
+    Enemies_FatBird_Fall: Enemies/FatBird/Fall (40x48).png
+    Enemies_FatBird_Ground: Enemies/FatBird/Ground (40x48).png
+    Enemies_FatBird_Hit: Enemies/FatBird/Hit (40x48).png
+    Enemies_FatBird_Idle: Enemies/FatBird/Idle (40x48).png
+    Enemies_Ghost_Appear: Enemies/Ghost/Appear (44x30).png
+    Enemies_Ghost_Desappear: Enemies/Ghost/Desappear (44x30).png
+    Enemies_Ghost_Gost_Particles: Enemies/Ghost/Gost Particles (48x16).png
+    Enemies_Ghost_Hit: Enemies/Ghost/Hit (44x30).png
+    Enemies_Ghost_Idle: Enemies/Ghost/Idle (44x30).png
+    Enemies_Mushroom_Hit: Enemies/Mushroom/Hit (32x32).png
+    Enemies_Mushroom_Hit: Enemies/Mushroom/Hit.png
+    Enemies_Mushroom_Idle: Enemies/Mushroom/Idle (32x32).png
+    Enemies_Mushroom_Run: Enemies/Mushroom/Run (32x32).png
+    Enemies_Plant_Attack: Enemies/Plant/Attack (44x42).png
+    Enemies_Plant_Bullet: Enemies/Plant/Bullet.png
+    Enemies_Plant_Bullet_Pieces: Enemies/Plant/Bullet Pieces.png
+    Enemies_Plant_Hit: Enemies/Plant/Hit (44x42).png
+    Enemies_Plant_Idle: Enemies/Plant/Idle (44x42).png
+    Enemies_Radish_Hit: Enemies/Radish/Hit (30x38).png
+    Enemies_Radish_Idle_1: Enemies/Radish/Idle 1 (30x38).png
+    Enemies_Radish_Idle_2: Enemies/Radish/Idle 2 (30x38).png
+    Enemies_Radish_Leafs: Enemies/Radish/Leafs.png
+    Enemies_Radish_Run: Enemies/Radish/Run (30x38).png
+    Enemies_Rino_Hit: Enemies/Rino/Hit (52x34).png
+    Enemies_Rino_Hit_Wall: Enemies/Rino/Hit Wall (52x34).png
+    Enemies_Rino_Idle: Enemies/Rino/Idle (52x34).png
+    Enemies_Rino_Run: Enemies/Rino/Run (52x34).png
+    Enemies_Rocks_Rock1_Hit: Enemies/Rocks/Rock1_Hit.png
+    Enemies_Rocks_Rock1_Idle: Enemies/Rocks/Rock1_Idle (38x34).png
+    Enemies_Rocks_Rock1_Run: Enemies/Rocks/Rock1_Run (38x34).png
+    Enemies_Rocks_Rock2_Hit: Enemies/Rocks/Rock2_Hit (32x28).png
+    Enemies_Rocks_Rock2_Idle: Enemies/Rocks/Rock2_Idle (32x28).png
+    Enemies_Rocks_Rock2_Run: Enemies/Rocks/Rock2_Run (32x28).png
+    Enemies_Rocks_Rock3_Hit: Enemies/Rocks/Rock3_Hit (22x18).png
+    Enemies_Rocks_Rock3_Idle: Enemies/Rocks/Rock3_Idle (22x18).png
+    Enemies_Rocks_Rock3_Run: Enemies/Rocks/Rock3_Run (22x18).png
+    Enemies_Skull_Hit: Enemies/Skull/Hit (52x54).png
+    Enemies_Skull_Hit_Wall_1: Enemies/Skull/Hit Wall 1 (52x54).png
+    Enemies_Skull_Hit_Wall_2: Enemies/Skull/Hit Wall 2 (52x54).png
+    Enemies_Skull_Idle_1: Enemies/Skull/Idle 1 (52x54).png
+    Enemies_Skull_Idle_2: Enemies/Skull/Idle 2 (52x54).png
+    Enemies_Skull_Orange_Particle: Enemies/Skull/Orange Particle.png
+    Enemies_Skull_Red_Particle: Enemies/Skull/Red Particle.png
+    Enemies_Slime_Hit: Enemies/Slime/Hit (44x30).png
+    Enemies_Slime_Idle_Run: Enemies/Slime/Idle-Run (44x30).png
+    Enemies_Slime_Particles: Enemies/Slime/Particles (62x16).png
+    Enemies_Snail_Hit: Enemies/Snail/Hit (38x24).png
+    Enemies_Snail_Idle: Enemies/Snail/Idle (38x24).png
+    Enemies_Snail_Shell_Idle: Enemies/Snail/Shell Idle (38x24).png
+    Enemies_Snail_Shell_Top_Hit: Enemies/Snail/Shell Top Hit (38x24).png
+    Enemies_Snail_Shell_Wall_Hit: Enemies/Snail/Shell Wall Hit (38x24).png
+    Enemies_Snail_Snail_without_shell: Enemies/Snail/Snail without shell.png
+    Enemies_Snail_Walk: Enemies/Snail/Walk (38x24).png
+    Enemies_Trunk_Attack: Enemies/Trunk/Attack (64x32).png
+    Enemies_Trunk_Bullet: Enemies/Trunk/Bullet.png
+    Enemies_Trunk_Bullet_Pieces: Enemies/Trunk/Bullet Pieces.png
+    Enemies_Trunk_Hit: Enemies/Trunk/Hit (64x32).png
+    Enemies_Trunk_Idle: Enemies/Trunk/Idle (64x32).png
+    Enemies_Trunk_Run: Enemies/Trunk/Run (64x32).png
+    Enemies_Turtle_Hit: Enemies/Turtle/Hit (44x26).png
+    Enemies_Turtle_Idle_1: Enemies/Turtle/Idle 1 (44x26).png
+    Enemies_Turtle_Idle_2: Enemies/Turtle/Idle 2 (44x26).png
+    Enemies_Turtle_Spikes_in: Enemies/Turtle/Spikes in (44x26).png
+    Enemies_Turtle_Spikes_out: Enemies/Turtle/Spikes out (44x26).png
+    Items_Boxes_Box1_Break: Items/Boxes/Box1/Break.png
+    Items_Boxes_Box1_Hit: Items/Boxes/Box1/Hit (28x24).png
+    Items_Boxes_Box1_Idle: Items/Boxes/Box1/Idle.png
+    Items_Boxes_Box2_Break: Items/Boxes/Box2/Break.png
+    Items_Boxes_Box2_Hit: Items/Boxes/Box2/Hit (28x24).png
+    Items_Boxes_Box2_Idle: Items/Boxes/Box2/Idle.png
+    Items_Boxes_Box3_Break: Items/Boxes/Box3/Break.png
+    Items_Boxes_Box3_Hit: Items/Boxes/Box3/Hit (28x24).png
+    Items_Boxes_Box3_Idle: Items/Boxes/Box3/Idle.png
+    Items_Checkpoints_Checkpoint_Checkpoint: Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle) (64x64).png
+    Items_Checkpoints_Checkpoint_Checkpoint: Items/Checkpoints/Checkpoint/Checkpoint (Flag Out) (64x64).png
+    Items_Checkpoints_Checkpoint_Checkpoint: Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png
+    Items_Checkpoints_End_End: Items/Checkpoints/End/End (Idle).png
+    Items_Checkpoints_End_End: Items/Checkpoints/End/End (Pressed) (64x64).png
+    Items_Checkpoints_Start_Start: Items/Checkpoints/Start/Start (Idle).png
+    Items_Checkpoints_Start_Start: Items/Checkpoints/Start/Start (Moving) (64x64).png
+    Items_Fruits_Apple: Items/Fruits/Apple.png
+    Items_Fruits_Bananas: Items/Fruits/Bananas.png
+    Items_Fruits_Cherries: Items/Fruits/Cherries.png
+    Items_Fruits_Collected: Items/Fruits/Collected.png
+    Items_Fruits_Kiwi: Items/Fruits/Kiwi.png
+    Items_Fruits_Melon: Items/Fruits/Melon.png
+    Items_Fruits_Orange: Items/Fruits/Orange.png
+    Items_Fruits_Pineapple: Items/Fruits/Pineapple.png
+    Items_Fruits_Strawberry: Items/Fruits/Strawberry.png
+    Main_Characters_Appearing: Main Characters/Appearing (96x96).png
+    Main_Characters_Desappearing: Main Characters/Desappearing (96x96).png
+    Main_Characters_Mask_Dude_Double_Jump: Main Characters/Mask Dude/Double Jump (32x32).png
+    Main_Characters_Mask_Dude_Fall: Main Characters/Mask Dude/Fall (32x32).png
+    Main_Characters_Mask_Dude_Hit: Main Characters/Mask Dude/Hit (32x32).png
+    Main_Characters_Mask_Dude_Idle: Main Characters/Mask Dude/Idle (32x32).png
+    Main_Characters_Mask_Dude_Jump: Main Characters/Mask Dude/Jump (32x32).png
+    Main_Characters_Mask_Dude_Run: Main Characters/Mask Dude/Run (32x32).png
+    Main_Characters_Mask_Dude_Wall_Jump: Main Characters/Mask Dude/Wall Jump (32x32).png
+    Main_Characters_Ninja_Frog_Double_Jump: Main Characters/Ninja Frog/Double Jump (32x32).png
+    Main_Characters_Ninja_Frog_Fall: Main Characters/Ninja Frog/Fall (32x32).png
+    Main_Characters_Ninja_Frog_Hit: Main Characters/Ninja Frog/Hit (32x32).png
+    Main_Characters_Ninja_Frog_Idle: Main Characters/Ninja Frog/Idle (32x32).png
+    Main_Characters_Ninja_Frog_Jump: Main Characters/Ninja Frog/Jump (32x32).png
+    Main_Characters_Ninja_Frog_Run: Main Characters/Ninja Frog/Run (32x32).png
+    Main_Characters_Ninja_Frog_Wall_Jump: Main Characters/Ninja Frog/Wall Jump (32x32).png
+    Main_Characters_Pink_Man_Double_Jump: Main Characters/Pink Man/Double Jump (32x32).png
+    Main_Characters_Pink_Man_Fall: Main Characters/Pink Man/Fall (32x32).png
+    Main_Characters_Pink_Man_Hit: Main Characters/Pink Man/Hit (32x32).png
+    Main_Characters_Pink_Man_Idle: Main Characters/Pink Man/Idle (32x32).png
+    Main_Characters_Pink_Man_Jump: Main Characters/Pink Man/Jump (32x32).png
+    Main_Characters_Pink_Man_Run: Main Characters/Pink Man/Run (32x32).png
+    Main_Characters_Pink_Man_Wall_Jump: Main Characters/Pink Man/Wall Jump (32x32).png
+    Main_Characters_Virtual_Guy_Double_Jump: Main Characters/Virtual Guy/Double Jump (32x32).png
+    Main_Characters_Virtual_Guy_Fall: Main Characters/Virtual Guy/Fall (32x32).png
+    Main_Characters_Virtual_Guy_Hit: Main Characters/Virtual Guy/Hit (32x32).png
+    Main_Characters_Virtual_Guy_Idle: Main Characters/Virtual Guy/Idle (32x32).png
+    Main_Characters_Virtual_Guy_Jump: Main Characters/Virtual Guy/Jump (32x32).png
+    Main_Characters_Virtual_Guy_Run: Main Characters/Virtual Guy/Run (32x32).png
+    Main_Characters_Virtual_Guy_Wall_Jump: Main Characters/Virtual Guy/Wall Jump (32x32).png
+    Menu_Buttons_Achievements: Menu/Buttons/Achievements.png
+    Menu_Buttons_Back: Menu/Buttons/Back.png
+    Menu_Buttons_Close: Menu/Buttons/Close.png
+    Menu_Buttons_Leaderboard: Menu/Buttons/Leaderboard.png
+    Menu_Buttons_Levels: Menu/Buttons/Levels.png
+    Menu_Buttons_Next: Menu/Buttons/Next.png
+    Menu_Buttons_Play: Menu/Buttons/Play.png
+    Menu_Buttons_Previous: Menu/Buttons/Previous.png
+    Menu_Buttons_Restart: Menu/Buttons/Restart.png
+    Menu_Buttons_Settings: Menu/Buttons/Settings.png
+    Menu_Buttons_Volume: Menu/Buttons/Volume.png
+    Menu_Levels_01: Menu/Levels/01.png
+    Menu_Levels_02: Menu/Levels/02.png
+    Menu_Levels_03: Menu/Levels/03.png
+    Menu_Levels_04: Menu/Levels/04.png
+    Menu_Levels_05: Menu/Levels/05.png
+    Menu_Levels_06: Menu/Levels/06.png
+    Menu_Levels_07: Menu/Levels/07.png
+    Menu_Levels_08: Menu/Levels/08.png
+    Menu_Levels_09: Menu/Levels/09.png
+    Menu_Levels_10: Menu/Levels/10.png
+    Menu_Levels_11: Menu/Levels/11.png
+    Menu_Levels_12: Menu/Levels/12.png
+    Menu_Levels_13: Menu/Levels/13.png
+    Menu_Levels_14: Menu/Levels/14.png
+    Menu_Levels_15: Menu/Levels/15.png
+    Menu_Levels_16: Menu/Levels/16.png
+    Menu_Levels_17: Menu/Levels/17.png
+    Menu_Levels_18: Menu/Levels/18.png
+    Menu_Levels_19: Menu/Levels/19.png
+    Menu_Levels_20: Menu/Levels/20.png
+    Menu_Levels_21: Menu/Levels/21.png
+    Menu_Levels_22: Menu/Levels/22.png
+    Menu_Levels_23: Menu/Levels/23.png
+    Menu_Levels_24: Menu/Levels/24.png
+    Menu_Levels_25: Menu/Levels/25.png
+    Menu_Levels_26: Menu/Levels/26.png
+    Menu_Levels_27: Menu/Levels/27.png
+    Menu_Levels_28: Menu/Levels/28.png
+    Menu_Levels_29: Menu/Levels/29.png
+    Menu_Levels_30: Menu/Levels/30.png
+    Menu_Levels_31: Menu/Levels/31.png
+    Menu_Levels_32: Menu/Levels/32.png
+    Menu_Levels_33: Menu/Levels/33.png
+    Menu_Levels_34: Menu/Levels/34.png
+    Menu_Levels_35: Menu/Levels/35.png
+    Menu_Levels_36: Menu/Levels/36.png
+    Menu_Levels_37: Menu/Levels/37.png
+    Menu_Levels_38: Menu/Levels/38.png
+    Menu_Levels_39: Menu/Levels/39.png
+    Menu_Levels_40: Menu/Levels/40.png
+    Menu_Levels_41: Menu/Levels/41.png
+    Menu_Levels_42: Menu/Levels/42.png
+    Menu_Levels_43: Menu/Levels/43.png
+    Menu_Levels_44: Menu/Levels/44.png
+    Menu_Levels_45: Menu/Levels/45.png
+    Menu_Levels_46: Menu/Levels/46.png
+    Menu_Levels_47: Menu/Levels/47.png
+    Menu_Levels_48: Menu/Levels/48.png
+    Menu_Levels_49: Menu/Levels/49.png
+    Menu_Levels_50: Menu/Levels/50.png
+    Menu_Text_Text: Menu/Text/Text (Black) (8x10).png
+    Menu_Text_Text: Menu/Text/Text (White) (8x10).png
+    Other_Confetti: Other/Confetti (16x16).png
+    Other_Dust_Particle: Other/Dust Particle.png
+    Other_Shadow: Other/Shadow.png
+    Other_Transition: Other/Transition.png
+    Terrain_Terrain: Terrain/Terrain (16x16).png
+    Traps_Arrow_Hit: Traps/Arrow/Hit (18x18).png
+    Traps_Arrow_Idle: Traps/Arrow/Idle (18x18).png
+    Traps_Blocks_HitSide: Traps/Blocks/HitSide (22x22).png
+    Traps_Blocks_HitTop: Traps/Blocks/HitTop (22x22).png
+    Traps_Blocks_Idle: Traps/Blocks/Idle.png
+    Traps_Blocks_Part_1: Traps/Blocks/Part 1 (22x22).png
+    Traps_Blocks_Part_2: Traps/Blocks/Part 2 (22x22).png
+    Traps_Falling_Platforms_Off: Traps/Falling Platforms/Off.png
+    Traps_Falling_Platforms_On: Traps/Falling Platforms/On (32x10).png
+    Traps_Fan_Off: Traps/Fan/Off.png
+    Traps_Fan_On: Traps/Fan/On (24x8).png
+    Traps_Fire_Hit: Traps/Fire/Hit (16x32).png
+    Traps_Fire_Off: Traps/Fire/Off.png
+    Traps_Fire_On: Traps/Fire/On (16x32).png
+    Traps_Platforms_Brown_Off: Traps/Platforms/Brown Off.png
+    Traps_Platforms_Brown_On: Traps/Platforms/Brown On (32x8).png
+    Traps_Platforms_Chain: Traps/Platforms/Chain.png
+    Traps_Platforms_Grey_Off: Traps/Platforms/Grey Off.png
+    Traps_Platforms_Grey_On: Traps/Platforms/Grey On (32x8).png
+    Traps_Rock_Head_Blink: Traps/Rock Head/Blink (42x42).png
+    Traps_Rock_Head_Bottom_Hit: Traps/Rock Head/Bottom Hit (42x42).png
+    Traps_Rock_Head_Idle: Traps/Rock Head/Idle.png
+    Traps_Rock_Head_Left_Hit: Traps/Rock Head/Left Hit (42x42).png
+    Traps_Rock_Head_Right_Hit: Traps/Rock Head/Right Hit (42x42).png
+    Traps_Rock_Head_Top_Hit: Traps/Rock Head/Top Hit (42x42).png
+    Traps_Sand_Mud_Ice_Ice_Particle: Traps/Sand Mud Ice/Ice Particle.png
+    Traps_Sand_Mud_Ice_Mud_Particle: Traps/Sand Mud Ice/Mud Particle.png
+    Traps_Sand_Mud_Ice_Sand_Mud_Ice: Traps/Sand Mud Ice/Sand Mud Ice (16x6).png
+    Traps_Sand_Mud_Ice_Sand_Particle: Traps/Sand Mud Ice/Sand Particle.png
+    Traps_Saw_Chain: Traps/Saw/Chain.png
+    Traps_Saw_Off: Traps/Saw/Off.png
+    Traps_Saw_On: Traps/Saw/On (38x38).png
+    Traps_Spike_Head_Blink: Traps/Spike Head/Blink (54x52).png
+    Traps_Spike_Head_Bottom_Hit: Traps/Spike Head/Bottom Hit (54x52).png
+    Traps_Spike_Head_Idle: Traps/Spike Head/Idle.png
+    Traps_Spike_Head_Left_Hit: Traps/Spike Head/Left Hit (54x52).png
+    Traps_Spike_Head_Right_Hit: Traps/Spike Head/Right Hit (54x52).png
+    Traps_Spike_Head_Top_Hit: Traps/Spike Head/Top Hit (54x52).png
+    Traps_Spiked_Ball_Chain: Traps/Spiked Ball/Chain.png
+    Traps_Spiked_Ball_Spiked_Ball: Traps/Spiked Ball/Spiked Ball.png
+    Traps_Spikes_Idle: Traps/Spikes/Idle.png
+    Traps_Trampoline_Idle: Traps/Trampoline/Idle.png
+    Traps_Trampoline_Jump: Traps/Trampoline/Jump (28x28).png

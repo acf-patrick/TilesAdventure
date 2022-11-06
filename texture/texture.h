@@ -12,6 +12,9 @@ public:
 
 	~TextureManager();
 	
+	// create texture tag from file path 	
+	std::string createTag(std::string path);
+
 	// Retrieve texture by tag
 	SDL_Texture* get(const std::string& tag);
 

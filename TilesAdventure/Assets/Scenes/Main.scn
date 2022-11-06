@@ -1,3 +1,7 @@
 - prefab: Player
 - tag: camera
   MoveCamera:
+- tag: map
+  Tilemap:
+    name: runner
+  TilemapRenderer:

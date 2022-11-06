@@ -1,5 +1,8 @@
 #pragma once
 
+#include <memory>
+
+#include "core/const.h"
 #include "texture/texture.h"
 #include "tileson/tileson.hpp"
 #include "core/geometry/geometry.h"
@@ -65,6 +68,22 @@ namespace ECS {
 
 		// Index of the tile to be used
 		int index = 0;
+	};
+
+	class Tilemap 
+	{
+		static tson::Tileson parser;
+		std::unique_ptr<tson::Map> map_;
+
+	public:
+		Tilemap(const std::string& map)
+		{
+			map_ = parser.parse(fs::path(MAPS_PATH + map + ".json"));
+			if (map_->getStatus() != tson::ParseStatus::OK)
+				throw std::logic_error("Tilemap error : " + map_->getStatusMessage());
+		}
+
+		friend class TilemapRenderer;
 	};
 
 }

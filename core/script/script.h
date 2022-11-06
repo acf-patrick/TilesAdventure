@@ -115,4 +115,100 @@ namespace ECS {
             listeners_[frame].emplace_back(callback);
         }
     };
+
+    class TilemapRenderer : public Script
+    {
+    protected:
+        TextureManager* texture_;
+        Transform* transform_;
+        Transform* camera_;
+        tson::Map* map_;
+
+        virtual void drawObject(tson::Object& object, SDL_Renderer* renderer)
+        {
+            // override
+        }
+
+        void drawLayer(tson::Layer& layer, SDL_Renderer* renderer)
+        {
+            auto type = layer.getType();
+            if (type == tson::LayerType::Group)
+                for (auto& lay: layer.getLayers())
+                    drawLayer(lay, renderer);
+            else if (type == tson::LayerType::ImageLayer)
+            {
+                auto image = layer.getImage();
+                image = image.substr(10);
+                auto texture = texture_->get(texture_->createTag(image));
+                if (!texture)
+                    return;
+                auto offset = layer.getOffset();
+                SDL_Rect dst = { offset.x - camera_->position.x, offset.y - camera_->position.y };
+                SDL_QueryTexture(texture, NULL, NULL, &dst.w, &dst.h);
+                SDL_RenderCopy(renderer, texture, NULL, &dst);
+            }
+            else if (type == tson::LayerType::ObjectGroup)
+            {
+                for (auto& object : layer.getObjects())
+                    drawObject(object, renderer);
+            }
+            else if (type == tson::LayerType::TileLayer)
+            {
+                SDL_Rect camera = { camera_->position.x, camera_->position.y };
+                auto tileSize = map_->getTileSize();
+                SDL_GetRendererOutputSize(renderer, &camera.w, &camera.h);
+                camera.w *= camera_->scale.x;
+                camera.h *= camera_->scale.y;
+                
+                SDL_Point min = { camera.x / tileSize.x - 1, camera.y / tileSize.y - 1 };
+                SDL_Point max = { min.x + (camera.w / tileSize.x) + 1, min.y + (camera.h / tileSize.y) + 1 };
+
+                auto mapSize = map_->getSize();
+                for (int x = min.x; x <= max.x; ++x)
+                {
+                    for (int y = min.y; y <= max.y; ++y)
+                    {
+                        if (x < 0 or y < 0 or x >= mapSize.x or y >= mapSize.y)
+                            continue;
+
+                        auto tile = layer.getTileData(x, y);
+                        if (tile)
+                        {
+                            auto tileset = tile->getTileset();
+                            auto image = tileset->getImage().string();
+                            image = image.substr(10);
+                            auto texture = texture_->get(texture_->createTag(image));
+                            auto rect = tile->getDrawingRect();
+                            SDL_Rect 
+                                src = { rect.x, rect.y, rect.width, rect.height },
+                                dst = { x * tileSize.x - camera.x, y * tileSize.y - camera.y, rect.width, rect.height };
+                            SDL_RenderCopy(renderer, texture, &src, &dst);
+                        }
+                    }
+                }
+            }
+        }
+
+    public:
+        void onAttach() override
+        {
+            texture_ = TextureManager::Get();
+
+            auto& transform = getComponent<Transform>();
+            transform_ = &transform;
+
+            auto& camera = Scene::Get()->getEntity("camera")->getComponent<Transform>();
+            camera_ = &camera;
+
+            auto& map = getComponent<Tilemap>();
+            map_ = map.map_.get();
+        }
+
+        void render(SDL_Renderer* renderer) override
+        {
+            auto& layers = map_->getLayers();
+            for (auto &layer : layers)
+                drawLayer(layer, renderer);
+        }
+    };
 }

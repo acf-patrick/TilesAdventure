@@ -8,7 +8,7 @@ if __name__ == '__main__':
         root = root[2:]
         for file in files:
             if '.png' in file:
-                path = os.path.join("Assets/Images/" + root, file)
+                path = os.path.join(root, file)
                 if '(' in file:
                     file = file[:file.find('(') - 1]
                 else:

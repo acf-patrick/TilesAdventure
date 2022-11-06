@@ -72,8 +72,21 @@ void Scene::load_(const std::string& name)
     
     if( !entities )
         throw std::logic_error( name + " : Scene not found!" );
+	
+	auto camera = entities_["camera"] = new ECS::Entity;
 
-	bool cameraDefined = false;
+	// Checking camera
+	for ( auto entity : entities )
+	{
+		auto tag = entity["tag"];
+		if (tag)
+			if (tag.as<std::string>() == "camera")
+			{
+				ECS::Entity::Load(camera, entity);
+				break;
+			}
+	}
+
 	for( auto entity : entities )
 	{
 		auto prefab = entity["prefab"];
@@ -90,6 +103,10 @@ void Scene::load_(const std::string& name)
 					tag = node["tag"].as<std::string>();
 				else
 					tag = std::to_string(e->getID());
+
+				if (tag == "camera")
+					throw std::logic_error("Can't create prefab for Camera entity.");
+
 				ECS::Entity::Load(e, node);
 			}
 			else 
@@ -97,13 +114,12 @@ void Scene::load_(const std::string& name)
 		}
 
 		if (entity["tag"])
-		{
 			tag = entity["tag"].as<std::string>();
-			if (tag == "camera")
-				cameraDefined = true;
-		}
 		else
 			tag = std::to_string(e->getID());
+
+		if (tag == "camera")
+			continue;
 
 		if (entities_.find(tag) != entities_.end())
 			tag += "#" + std::to_string(e->getID());
@@ -112,9 +128,6 @@ void Scene::load_(const std::string& name)
 
 		ECS::Entity::Load(e, entity);
 	}
-
-	if (!cameraDefined)
-		entities_["camera"] = new ECS::Entity;
 
 	std::cout << "Scene " << name << " successfully loaded" << std::endl;
 	

@@ -103,7 +103,6 @@ namespace ECS
 	{
 		// Load components
 		{
-			// Getting transform
 			auto nTransform = node["Transform"];
 			if (nTransform)
 			{
@@ -124,9 +123,8 @@ namespace ECS
 					transform.rotation = nTransform["rotation"].as<double>();
 				if (nTransform["zIndex"])
 					transform.zIndex = nTransform["zIndex"].as<int>();
-			}
+			} // end transform
 
-			// Getting sprite
 			auto nSprite = node["Sprite"];
 			if (nSprite)
 			{
@@ -173,7 +171,11 @@ namespace ECS
 					sprite.margin.x = tmp[0];
 					sprite.margin.y = tmp[1];
 				}
-			}
+			} // end sprite
+
+			auto nTilemap = node["Tilemap"];
+			if (nTilemap)
+				e->attach<Tilemap>(nTilemap["name"].as<std::string>());
 		}
 
 		// Load scripts
@@ -189,9 +191,15 @@ namespace ECS
 				auto &animator = frames ? e->attachScript<SpriteAnimator>(frames.as<std::vector<int>>()) : e->attachScript<SpriteAnimator>();
 				animator.rate = n["rate"].as<int>();
 			}
+
+			n = node["TilemapRenderer"];
+			if (n)
+				e->attachScript<TilemapRenderer>();
 		}
 
 		// User loader
 		Deserialize(e, node);
 	}
+
+	tson::Tileson Tilemap::parser;
 }

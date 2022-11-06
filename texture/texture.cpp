@@ -1,4 +1,5 @@
 #include "texture.h"
+#include "core/const.h"
 #include "renderer/renderer.h"
 
 #include <SDL2/SDL_image.h>
@@ -26,10 +27,29 @@ TextureManager::~TextureManager()
 	instance = nullptr;
 }
 
+std::string TextureManager::createTag(std::string path)
+{
+	auto end = path.find_last_of('(');
+	if (end == path.npos)
+		end = path.find_last_of('.');
+	else
+		end--;
+	if (end == path.npos)
+		return path;
+	path = path.substr(0, end);
+	for (auto& car : path)
+		if (car == ' ' or car == '/')
+			car = '_';
+	return path;
+}
+
 SDL_Texture* TextureManager::get(const std::string& tag)
 {
 	if (textures_.find(tag) == textures_.end())
+	{
+		std::cerr << tag << " : texture not found" << std::endl;
 		return nullptr;
+	}
 	return textures_[tag];
 }
 
@@ -37,40 +57,25 @@ SDL_Texture* TextureManager::load(const std::string& filePath, const std::string
 {
 	std::string tag(t);
 	if (tag.empty())
-	{
-		tag = filePath;
-		auto slash = tag.find_last_of('/');
-		if (slash == tag.npos)
-			slash = tag.find_last_of('\\');
-		auto dot = tag.find_last_of('.');
-		tag = tag.substr(slash + 1, dot - slash - 1);
-	}
+		tag = createTag(filePath);
 	
 	if (textures_.find(tag) != textures_.end())
 		return textures_[tag];
 
-	textures_[tag] = IMG_LoadTexture(Renderer::Get()->renderer_, filePath.c_str());
+	textures_[tag] = IMG_LoadTexture(Renderer::Get()->renderer_, (IMAGES_PATH + filePath).c_str());
 	return textures_[tag];
 }
-
 
 SDL_Texture* TextureManager::load(const std::string& filePath, const SDL_Color& colorkey, const std::string& t)
 {
 	std::string tag(t);
 	if (tag.empty())
-	{
-		tag = filePath;
-		auto slash = tag.find_last_of('/');
-		if (slash == tag.npos)
-			slash = tag.find_last_of('\\');
-		auto dot = tag.find_last_of('.');
-		tag = tag.substr(slash + 1, dot - slash - 1);
-	}
+		tag = createTag(filePath);
 
 	if (textures_.find(tag) != textures_.end())
 		return textures_[tag];
 
-	auto surface = IMG_Load(filePath.c_str());
+	auto surface = IMG_Load((IMAGES_PATH + filePath).c_str());
 	SDL_SetColorKey(surface, SDL_TRUE, SDL_MapRGB(surface->format, colorkey.r, colorkey.g, colorkey.b));
 	textures_[tag] = SDL_CreateTextureFromSurface(Renderer::Get()->renderer_, surface);
 	
@@ -82,7 +87,7 @@ SDL_Texture* TextureManager::load(const std::string& filePath, const SDL_Color& 
 void TextureManager::erase(const std::string & tag)
 {
 	if (textures_.find(tag) == textures_.end())
-		throw std::out_of_range("Tag of texture not found.");
+		throw std::out_of_range("Texture tag not found.");
 
 	SDL_DestroyTexture(textures_.at(tag));
 	
