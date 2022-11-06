@@ -18,13 +18,25 @@ Game::Game(const std::string& config)
     SDL_Init( SDL_INIT_VIDEO | SDL_INIT_JOYSTICK );
 
     // Creating window ans renderer
-    SDL_CreateWindowAndRenderer( node["width"].as<int>(), node["height"].as<int>(), SDL_WINDOW_SHOWN, &window_, &renderer_.renderer_ );
+    window_ = SDL_CreateWindow( 
+        node["name"].as<std::string>().c_str(), 
+        SDL_WINDOWPOS_CENTERED, 
+        SDL_WINDOWPOS_CENTERED,
+        node["width"].as<int>(),
+        node["height"].as<int>(),
+        SDL_WINDOW_SHOWN );
 
-    if( !window_ || !renderer_.renderer_ )
+    if( !window_)
         throw std::logic_error( SDL_GetError() );
 
-    SDL_SetWindowPosition( window_, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED );
-    SDL_SetWindowTitle( window_, node["name"].as<std::string>().c_str() );
+    renderer_.init(window_);
+
+    auto scale = node["outputScale"];
+    if (scale)
+    {
+        auto s = scale.as<std::vector<float>>();
+        renderer_.setOutputScale(s[0], s[1]);
+    }
 
     /* Loading ressources */
 
@@ -68,7 +80,7 @@ void Game::update()
 
 void Game::render()
 {
-    renderer_.clear();
+    renderer_.prepare();
     activeScene_.render(renderer_.renderer_);
 	renderer_.update();
 }

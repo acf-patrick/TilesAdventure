@@ -1,6 +1,7 @@
 name: Tiles Adventure
 width: 480
 height: 360
+outputScale: [0.5, 0.5]
 main: Main
 resources:
   images:

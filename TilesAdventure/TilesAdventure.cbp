@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/TilesAdventure" prefix_auto="1" extension_auto="1" />
+				<Option output="TilesAdventure" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -41,6 +41,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../client/components.h" />
+		<Unit filename="../client/entry.cpp" />
+		<Unit filename="../client/scripts/MoveCamera.h" />
+		<Unit filename="../client/scripts/Switch.h" />
 		<Unit filename="../core/ECS/component.h" />
 		<Unit filename="../core/ECS/ecs.cpp" />
 		<Unit filename="../core/ECS/ecs.h" />
