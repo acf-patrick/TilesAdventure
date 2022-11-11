@@ -19,8 +19,8 @@ EventHandler::EventHandler()
 
 EventHandler::~EventHandler()
 {
-	for (auto joystick : joysticks_)
-		SDL_JoystickClose(joystick);
+	/* for (auto joystick : joysticks_)
+		SDL_JoystickClose(joystick); */
 }
 
 void EventHandler::init()
@@ -47,12 +47,13 @@ SDL_Point EventHandler::getMousePosition()
 	return pos;
 }
 
-bool EventHandler::getJoystickButton(int joystickID, int buttonID)
+bool EventHandler::getJoystickButton(int buttonID, int joystickID)
 {
 	if (joysticks_.empty())
 	{
-		std::cerr << "No joystick attached!" << std::endl;
-		return false;
+		init();
+		if (joysticks_.empty())
+			return false;
 	}
 
 	if (joystickID >= joysticks_.size())
@@ -61,6 +62,23 @@ bool EventHandler::getJoystickButton(int joystickID, int buttonID)
 	auto joystick = joysticks_[joystickID];
 	SDL_JoystickUpdate();
 	return SDL_JoystickGetButton(joystick, buttonID);
+}
+
+int EventHandler::getJoystickAxis(int axisID, int joystickID)
+{
+	if (joysticks_.empty())
+	{
+		init();
+		if (joysticks_.empty())
+			return false;
+	}
+
+	if (joystickID >= joysticks_.size())
+		return false;
+	
+	auto joystick = joysticks_[joystickID];
+	SDL_JoystickUpdate();
+	return SDL_JoystickGetAxis(joystick, axisID);
 }
 
 bool EventHandler::update()
@@ -81,7 +99,7 @@ bool EventHandler::update()
 			if (index == SDLK_ESCAPE)
 				return false;
 		}
-		 
+
 		if (event.type == SDL_KEYUP)
 		{
 			SDL_Keycode index = event.key.keysym.sym;

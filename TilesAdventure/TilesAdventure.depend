@@ -307,7 +307,7 @@
 	<cstdint>
 	<unordered_map>
 
-1667757242 /home/patrick/TilesAdventure//core/scene/scene.h
+1668193862 /home/patrick/TilesAdventure//core/scene/scene.h
 	<map>
 	<iostream>
 	<SDL2/SDL.h>
@@ -325,7 +325,7 @@
 	"tileson/tileson.hpp"
 	"core/geometry/geometry.h"
 
-1667757242 /home/patrick/TilesAdventure//event/event.h
+1668193026 /home/patrick/TilesAdventure//event/event.h
 	<map>
 	<vector>
 	<SDL2/SDL.h>
@@ -338,7 +338,7 @@
 1667751387 source:/home/patrick/TilesAdventure/core/main.cpp
 	"game/game.h"
 
-1667757242 /home/patrick/TilesAdventure//game/game.h
+1668194017 /home/patrick/TilesAdventure//game/game.h
 	<cstdlib>
 	<memory>
 	<SDL2/SDL.h>
@@ -352,7 +352,7 @@
 	"core/script/script.h"
 	"core/scene/scene.h"
 
-1667757242 source:/home/patrick/TilesAdventure/core/scene/scene.cpp
+1668193877 source:/home/patrick/TilesAdventure/core/scene/scene.cpp
 	"core/scene/scene.h"
 	"core/script/script.h"
 
@@ -364,17 +364,17 @@
 	"./base.h"
 	<functional>
 
-1667757242 source:/home/patrick/TilesAdventure/event/event.cpp
+1668194159 source:/home/patrick/TilesAdventure/event/event.cpp
 	"event.h"
 	<iostream>
 	<SDL2/SDL.h>
 
-1667757242 /home/patrick/TilesAdventure/event/event.h
+1668193026 /home/patrick/TilesAdventure/event/event.h
 	<map>
 	<vector>
 	<SDL2/SDL.h>
 
-1667759258 source:/home/patrick/TilesAdventure/game/game.cpp
+1668193996 source:/home/patrick/TilesAdventure/game/game.cpp
 	"game.h"
 	"event/event.h"
 	<map>
@@ -382,7 +382,7 @@
 	<iostream>
 	<yaml-cpp/yaml.h>
 
-1667757242 /home/patrick/TilesAdventure/game/game.h
+1668194017 /home/patrick/TilesAdventure/game/game.h
 	<cstdlib>
 	<memory>
 	<SDL2/SDL.h>
@@ -396,15 +396,16 @@
 	"core/script/script.h"
 	"core/scene/scene.h"
 
-1667153305 source:/home/patrick/TilesAdventure/renderer/renderer.cpp
+1667759729 source:/home/patrick/TilesAdventure/renderer/renderer.cpp
 	"renderer.h"
 	<iostream>
 	<stdexcept>
 
-1667153259 /home/patrick/TilesAdventure/renderer/renderer.h
+1667759545 /home/patrick/TilesAdventure/renderer/renderer.h
 	<queue>
 	<SDL2/SDL.h>
 	<functional>
+	"core/geometry/geometry.h"
 
 1667757242 source:/home/patrick/TilesAdventure/texture/texture.cpp
 	"texture.h"
@@ -445,7 +446,7 @@
 
 1667757242 /home/patrick/TilesAdventure/client/components.h
 
-1667757242 /home/patrick/TilesAdventure/client/scripts/MoveCamera.h
+1668194100 /home/patrick/TilesAdventure/client/scripts/MoveCamera.h
 	"event/event.h"
 	"core/script/script.h"
 	"core/geometry/geometry.h"

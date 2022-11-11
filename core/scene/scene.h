@@ -18,6 +18,10 @@ private:
     // All entities in the scene
     std::map<std::string, ECS::Entity*> entities_;
         
+    // Scene current state
+    bool running_ = true;
+
+    // Used when loading new scene
     std::string loadRequest_; 
 
     //  The instance of the scene
@@ -30,14 +34,20 @@ private:
 
     Scene();
 		
-public:
-
     ~Scene();
         
     void render(SDL_Renderer*);
 
     void update( Uint32 dt );
-        
+
+public:
+
+    /**
+     * @brief Terminate this scene
+     * If no load request has been made, then application will finish
+     */
+    void finish();
+    
     // Get all entities within the scene
     ECS::Entity* getEntity(const std::string& tag);
 

@@ -30,7 +30,9 @@ public:
 
 	bool getKey(SDL_Keycode index);
 
-	bool getJoystickButton(int joystickID, int buttonID);
+	bool getJoystickButton(int buttonID, int joystickID = 0);
+
+	int getJoystickAxis(int axisID, int joystickID = 0);
 
 	SDL_Point getMousePosition();
 

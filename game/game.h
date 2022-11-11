@@ -15,14 +15,6 @@
 #include "core/script/script.h"
 #include "core/scene/scene.h"
 
-// enumeration for the game state
-enum class GameState
-{
-    RUNNING,
-    STOPPED,
-    HALTED
-};
-
 // Main game class
 class Game 
 {
@@ -42,19 +34,18 @@ private:
     // The active scene
     Scene activeScene_;
 
+    // last tick recorded
+    Uint32 lastTick_;
+
+    bool update();
+
+    void render();
+    
 public:
     Game(const std::string& config);
 
     ~Game();
 
-    // Main loop
     void run();
-
-    void update();
-
-    void render();
-
-    Uint32 last;
-
 };
 

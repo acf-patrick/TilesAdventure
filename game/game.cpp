@@ -18,9 +18,9 @@ Game::Game(const std::string& config)
     SDL_Init( SDL_INIT_VIDEO | SDL_INIT_JOYSTICK );
 
     // Creating window ans renderer
-    window_ = SDL_CreateWindow( 
-        node["name"].as<std::string>().c_str(), 
-        SDL_WINDOWPOS_CENTERED, 
+    window_ = SDL_CreateWindow(
+        node["name"].as<std::string>().c_str(),
+        SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
         node["width"].as<int>(),
         node["height"].as<int>(),
@@ -49,6 +49,7 @@ Game::Game(const std::string& config)
 
     // Setting the active scene
 	activeScene_.load(node["main"].as<std::string>());
+	eventHandler_.init();
 }
 
 Game::~Game()
@@ -59,23 +60,28 @@ Game::~Game()
 
 void Game::run()
 {
-    // Main game loop
-    GameState state = GameState::RUNNING;
-
-    while( state == GameState::RUNNING )
+    while( true )
     {
         if (!eventHandler_.update())
             break;
-        update();
+        
+        if (!update())
+            break;
+
         render();
     }
 }
 
-void Game::update()
+bool Game::update()
 {
     auto curr = SDL_GetTicks();
-    activeScene_.update( curr - last );
-    last = curr;
+
+    activeScene_.update( curr - lastTick_ );
+    if (!activeScene_.running_)
+        return false;
+    
+    lastTick_ = curr;
+    return true;
 }
 
 void Game::render()

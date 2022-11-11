@@ -17,16 +17,19 @@ public:
     void update(Uint32 dt) override
     {
         auto event = EventHandler::Get();
-        if (event->getKey(SDLK_UP))
+        if (event->getKey(SDLK_UP) or event->getJoystickAxis(1) < 0)
             camera_->y -= speed_ * dt;
 
-        if (event->getKey(SDLK_DOWN))
+        if (event->getKey(SDLK_DOWN) or event->getJoystickAxis(1) > 0)
             camera_->y += speed_ * dt;
             
-        if (event->getKey(SDLK_LEFT))
+        if (event->getKey(SDLK_LEFT) or event->getJoystickAxis(0) < 0)
             camera_->x -= speed_ * dt;
             
-        if (event->getKey(SDLK_RIGHT))
+        if (event->getKey(SDLK_RIGHT) or event->getJoystickAxis(0) > 0)
             camera_->x += speed_ * dt;
+
+        if (event->getJoystickButton(5))
+            Scene::Get()->finish();
     }
-};     
+};

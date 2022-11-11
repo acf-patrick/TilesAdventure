@@ -38,6 +38,11 @@ void Scene::update( Uint32 dt )
 		load_(loadRequest_);
 }
 
+void Scene::finish()
+{
+	running_ = false;
+}
+
 ECS::Entity* Scene::getEntity(const std::string& tag)
 {
 	if (entities_.find(tag) == entities_.end())
