@@ -338,7 +338,7 @@
 1667751387 source:/home/patrick/TilesAdventure/core/main.cpp
 	"game/game.h"
 
-1668194017 /home/patrick/TilesAdventure//game/game.h
+1668228830 /home/patrick/TilesAdventure//game/game.h
 	<cstdlib>
 	<memory>
 	<SDL2/SDL.h>
@@ -364,7 +364,7 @@
 	"./base.h"
 	<functional>
 
-1668194159 source:/home/patrick/TilesAdventure/event/event.cpp
+1668194321 source:/home/patrick/TilesAdventure/event/event.cpp
 	"event.h"
 	<iostream>
 	<SDL2/SDL.h>
@@ -374,15 +374,16 @@
 	<vector>
 	<SDL2/SDL.h>
 
-1668193996 source:/home/patrick/TilesAdventure/game/game.cpp
+1668242370 source:/home/patrick/TilesAdventure/game/game.cpp
 	"game.h"
+	"timer/timer.h"
 	"event/event.h"
 	<map>
 	<utility>
 	<iostream>
 	<yaml-cpp/yaml.h>
 
-1668194017 /home/patrick/TilesAdventure/game/game.h
+1668228830 /home/patrick/TilesAdventure/game/game.h
 	<cstdlib>
 	<memory>
 	<SDL2/SDL.h>
@@ -467,4 +468,17 @@
 	<string>
 	<iostream>
 	<fstream>
+
+1668230424 /home/patrick/TilesAdventure//timer/timer.h
+	<vector>
+	<functional>
+	<SDL2/SDL.h>
+
+1668230353 source:/home/patrick/TilesAdventure/timer/timer.cpp
+	"timer.h"
+
+1668230424 /home/patrick/TilesAdventure/timer/timer.h
+	<vector>
+	<functional>
+	<SDL2/SDL.h>
 

@@ -1,4 +1,5 @@
 #include "game.h"
+#include "timer/timer.h"
 #include "event/event.h"
 
 #include <map>
@@ -38,6 +39,10 @@ Game::Game(const std::string& config)
         renderer_.setOutputScale(s[0], s[1]);
     }
 
+    auto fps = node["fps"];
+    if (fps)
+        fps_ = fps.as<int>();
+
     /* Loading ressources */
 
     auto rsc = node["resources"];
@@ -75,11 +80,18 @@ void Game::run()
 bool Game::update()
 {
     auto curr = SDL_GetTicks();
+    auto dt = curr - lastTick_;
 
-    activeScene_.update( curr - lastTick_ );
+    activeScene_.update( dt );
     if (!activeScene_.running_)
         return false;
     
+    for (auto timer : Timer::instances)
+        timer->call();
+
+    if (dt < 1000 / fps_)
+        SDL_Delay(1000 / fps_ - dt);
+
     lastTick_ = curr;
     return true;
 }

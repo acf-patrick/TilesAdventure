@@ -37,6 +37,9 @@ private:
     // last tick recorded
     Uint32 lastTick_;
 
+    // frames per second
+    int fps_ = 60;
+
     bool update();
 
     void render();
