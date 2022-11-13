@@ -1,5 +1,6 @@
 #pragma once
 
+#include <set>
 #include <vector>
 #include <functional>
 #include <SDL2/SDL.h>
@@ -9,7 +10,15 @@ class Timer
 using Callback = std::function<void(void)>;
 
 private:
-    static std::vector<Timer*> instances;
+    struct Compare 
+    {
+        bool operator() (Timer* t1, Timer* t2) const
+        {
+            return t1->time_ < t2->time_;
+        }
+    };
+
+    static std::set<Timer*, Compare> instances;
 
     std::vector<Callback> callbacks_;
 
@@ -20,7 +29,7 @@ private:
     int count_;
 
     // Call recorded callbacks
-    void call();
+    bool call();
 
 public:
     /**

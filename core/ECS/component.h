@@ -4,6 +4,7 @@
 
 #include "core/const.h"
 #include "texture/texture.h"
+#include "physics/physics.h"
 #include "tileson/tileson.hpp"
 #include "core/geometry/geometry.h"
 
@@ -84,6 +85,157 @@ namespace ECS {
 		}
 
 		friend class TilemapRenderer;
+	};
+
+	class RigidBody
+	{
+		enum Type { STATIC, KINEMATIC, DYNAMIC };
+
+		b2World& world_;
+		b2Body* body_;
+		Type type_;
+
+	public:
+		/**
+		 * @param type Body type. Should be [ static, kinematic, dynamic ]
+		 * @param position Position of this body in pixel coordinates
+		*/
+		RigidBody(Type type, const Point& position) : 
+			world_(PhysicSystem::Get()->world_),
+			type_(type)
+		{
+			b2BodyDef def;
+			def.position.Set(pixelToMeter(position.x), pixelToMeter(position.y));
+			def.type = (b2BodyType)type;
+
+			body_ = world_.CreateBody(&def);
+		}
+
+		b2Body* getBody()
+		{
+			return body_;
+		}
+
+		~RigidBody()
+		{
+			auto tmp = getBody();
+			world_.DestroyBody(body_);
+		}
+
+		void setDensity(float density)
+		{
+			for (auto fixture = body_->GetFixtureList(); fixture; fixture = fixture->GetNext())
+				fixture->SetDensity(density);
+		}
+
+		void setGravityScale(float scale)
+		{
+			body_->SetGravityScale(scale);
+		}
+
+		void setAwake(bool awake)
+		{
+			body_->SetAwake(awake);
+		}
+
+		void setType(Type type)
+		{
+			body_->SetType((b2BodyType)type);
+		}
+	};
+
+	class Collider
+	{
+		enum Type { CIRCLE, POLYGON, BOX };
+
+		b2Fixture* fixture_;
+		b2Body* body_;
+
+		float density_;
+		Type type_;
+
+		void destroyFixture()
+		{
+			if (!body_)
+				throw std::logic_error("No body attached to the entity!");
+
+			if (!fixture_)
+				return;
+
+			body_->DestroyFixture(fixture_);
+		}
+
+	public:
+		Collider(Type type, float density) : 
+			type_(type),
+			density_(density)
+		{}
+
+		b2Fixture* getFixture()
+		{
+			return fixture_;
+		}
+
+		void setDensity(float density)
+		{
+			density_ = density;
+			fixture_->SetDensity(density);
+		}
+
+		// Set this shape to be a circle
+		void setCircle(float radius)
+		{
+			b2CircleShape shape;
+			shape.m_radius = radius;
+
+			if (!body_)
+				throw std::logic_error("No body attached to the entity!");
+
+			destroyFixture();
+			fixture_ = body_->CreateFixture(&shape, density_);
+		}
+
+		/**
+		 * @brief Set this shape to be a polygon
+		 * @param vertices List of points in pixel coordinates
+		*/
+		void setPolygon(const std::vector<Point>& vertices)
+		{
+			auto len = vertices.size();
+			if (len > 8)
+				throw std::logic_error("8 vertices are only allowed for a polygon shape");
+
+			b2PolygonShape shape;
+			for (int i = 0; i < len; ++i)
+				shape.m_vertices[i].Set(pixelToMeter(vertices[i].x), pixelToMeter(vertices[i].y));
+
+			shape.m_count = len;
+
+			if (!body_)
+				throw std::logic_error("No body attached to the entity!");
+
+			destroyFixture();
+			fixture_ = body_->CreateFixture(&shape, density_);
+		}
+
+		/**
+		 * @brief Set this shape to be a box
+		 * @param width Width of the box in pixels
+		 * @param height height of the box in pixels
+		*/
+		void setBox(int width, int height)
+		{
+			b2PolygonShape shape;
+			shape.SetAsBox(pixelToMeter(width * 0.5), pixelToMeter(height * 0.5));
+
+			if (!body_)
+				throw std::logic_error("No body attached to the entity!");
+
+			destroyFixture();
+			fixture_ = body_->CreateFixture(&shape, density_);
+		}
+
+		friend class Entity;
 	};
 
 }

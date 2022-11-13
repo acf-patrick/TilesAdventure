@@ -5,6 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/@dependencies/**",
+                "${workspaceFolder}/@dependencies/box2d/include/**",
                 "${workspaceFolder}/@dependencies/yaml-cpp/include/**",
                 "/usr/include/SDL2"
             ],

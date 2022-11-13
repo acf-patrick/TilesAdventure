@@ -54,8 +54,12 @@ public:
 	// Get current Scene
     static Scene* Get();
         
-    // Load new scene
-    void load( const std::string& name );
+    /**
+     * @brief Load new scene
+     * @param name Name of the scene to load (Should be in ./Assets/Scenes/)
+     * @param important Indicates if this load request is important than any previous request made
+    */
+    void load( const std::string& name, bool important = false);
         
     friend class Game;
 };

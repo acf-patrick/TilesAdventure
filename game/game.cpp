@@ -82,15 +82,18 @@ bool Game::update()
     auto curr = SDL_GetTicks();
     auto dt = curr - lastTick_;
 
+    physicSystem_.update(dt);
+
+    for (auto timer : Timer::instances)
+        if (!timer->call())
+            break;
+
     activeScene_.update( dt );
     if (!activeScene_.running_)
         return false;
-    
-    for (auto timer : Timer::instances)
-        timer->call();
 
-    if (dt < 1000 / fps_)
-        SDL_Delay(1000 / fps_ - dt);
+    if (dt < 1000.0 / fps_)
+        SDL_Delay(1000.0 / fps_ - dt);
 
     lastTick_ = curr;
     return true;

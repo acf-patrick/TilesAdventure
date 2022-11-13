@@ -50,10 +50,10 @@ ECS::Entity* Scene::getEntity(const std::string& tag)
     return entities_[tag];
 }
 
-void Scene::load( const std::string& name )
+void Scene::load( const std::string& name, bool important )
 {
 	// No request pending
-	if (loadRequest_.empty())
+	if (loadRequest_.empty() or important)
 		loadRequest_ = name;
 	else
 		std::cerr << "Another scene is already loading." << std::endl;

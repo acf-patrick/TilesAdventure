@@ -222,10 +222,11 @@
 	<iosfwd>
 	"yaml-cpp/dll.h"
 
-1667757242 /home/patrick/TilesAdventure/core/ECS/component.h
+1668346742 /home/patrick/TilesAdventure/core/ECS/component.h
 	<memory>
 	"core/const.h"
 	"texture/texture.h"
+	"physics/physics.h"
 	"tileson/tileson.hpp"
 	"core/geometry/geometry.h"
 
@@ -307,7 +308,7 @@
 	<cstdint>
 	<unordered_map>
 
-1668193862 /home/patrick/TilesAdventure//core/scene/scene.h
+1668324303 /home/patrick/TilesAdventure//core/scene/scene.h
 	<map>
 	<iostream>
 	<SDL2/SDL.h>
@@ -318,10 +319,11 @@
 
 1667757242 /home/patrick/TilesAdventure//core/const.h
 
-1667757242 /home/patrick/TilesAdventure//core/ECS/component.h
+1668346742 /home/patrick/TilesAdventure//core/ECS/component.h
 	<memory>
 	"core/const.h"
 	"texture/texture.h"
+	"physics/physics.h"
 	"tileson/tileson.hpp"
 	"core/geometry/geometry.h"
 
@@ -338,7 +340,7 @@
 1667751387 source:/home/patrick/TilesAdventure/core/main.cpp
 	"game/game.h"
 
-1668228830 /home/patrick/TilesAdventure//game/game.h
+1668320045 /home/patrick/TilesAdventure//game/game.h
 	<cstdlib>
 	<memory>
 	<SDL2/SDL.h>
@@ -346,13 +348,14 @@
 	"core/const.h"
 	"core/ECS/entity.h"
 	"texture/texture.h"
+	"physics/physics.h"
+	"core/scene/scene.h"
 	"renderer/renderer.h"
 	"renderer/renderer.h"
 	"core/ECS/component.h"
 	"core/script/script.h"
-	"core/scene/scene.h"
 
-1668193877 source:/home/patrick/TilesAdventure/core/scene/scene.cpp
+1668324206 source:/home/patrick/TilesAdventure/core/scene/scene.cpp
 	"core/scene/scene.h"
 	"core/script/script.h"
 
@@ -364,7 +367,7 @@
 	"./base.h"
 	<functional>
 
-1668194321 source:/home/patrick/TilesAdventure/event/event.cpp
+1668242922 source:/home/patrick/TilesAdventure/event/event.cpp
 	"event.h"
 	<iostream>
 	<SDL2/SDL.h>
@@ -374,7 +377,7 @@
 	<vector>
 	<SDL2/SDL.h>
 
-1668242370 source:/home/patrick/TilesAdventure/game/game.cpp
+1668341446 source:/home/patrick/TilesAdventure/game/game.cpp
 	"game.h"
 	"timer/timer.h"
 	"event/event.h"
@@ -383,7 +386,7 @@
 	<iostream>
 	<yaml-cpp/yaml.h>
 
-1668228830 /home/patrick/TilesAdventure/game/game.h
+1668320045 /home/patrick/TilesAdventure/game/game.h
 	<cstdlib>
 	<memory>
 	<SDL2/SDL.h>
@@ -391,11 +394,12 @@
 	"core/const.h"
 	"core/ECS/entity.h"
 	"texture/texture.h"
+	"physics/physics.h"
+	"core/scene/scene.h"
 	"renderer/renderer.h"
 	"renderer/renderer.h"
 	"core/ECS/component.h"
 	"core/script/script.h"
-	"core/scene/scene.h"
 
 1667759729 source:/home/patrick/TilesAdventure/renderer/renderer.cpp
 	"renderer.h"
@@ -437,10 +441,11 @@
 	"core/ECS/component.h"
 	"event/event.h"
 
-1667757242 source:/home/patrick/TilesAdventure/client/entry.cpp
+1668253316 source:/home/patrick/TilesAdventure/client/entry.cpp
 	"core/ECS/entity.h"
 	"components.h"
 	"scripts/MoveCamera.h"
+	"scripts/Body.h"
 
 1667414603 /home/patrick/TilesAdventure/client/scripts/Switch.h
 	"core/script/script.h"
@@ -469,16 +474,224 @@
 	<iostream>
 	<fstream>
 
-1668230424 /home/patrick/TilesAdventure//timer/timer.h
+1668341164 /home/patrick/TilesAdventure//timer/timer.h
+	<set>
 	<vector>
 	<functional>
 	<SDL2/SDL.h>
 
-1668230353 source:/home/patrick/TilesAdventure/timer/timer.cpp
+1668341405 source:/home/patrick/TilesAdventure/timer/timer.cpp
 	"timer.h"
 
-1668230424 /home/patrick/TilesAdventure/timer/timer.h
+1668341164 /home/patrick/TilesAdventure/timer/timer.h
+	<set>
 	<vector>
 	<functional>
 	<SDL2/SDL.h>
+
+1668341790 /home/patrick/TilesAdventure/client/scripts/Body.h
+	"core/script/script.h"
+	<box2d/box2d.h>
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/box2d.h
+	"b2_settings.h"
+	"b2_draw.h"
+	"b2_timer.h"
+	"b2_chain_shape.h"
+	"b2_circle_shape.h"
+	"b2_edge_shape.h"
+	"b2_polygon_shape.h"
+	"b2_broad_phase.h"
+	"b2_dynamic_tree.h"
+	"b2_body.h"
+	"b2_contact.h"
+	"b2_fixture.h"
+	"b2_time_step.h"
+	"b2_world.h"
+	"b2_world_callbacks.h"
+	"b2_distance_joint.h"
+	"b2_friction_joint.h"
+	"b2_gear_joint.h"
+	"b2_motor_joint.h"
+	"b2_mouse_joint.h"
+	"b2_prismatic_joint.h"
+	"b2_pulley_joint.h"
+	"b2_revolute_joint.h"
+	"b2_weld_joint.h"
+	"b2_wheel_joint.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_settings.h
+	"b2_types.h"
+	"b2_api.h"
+	"b2_user_settings.h"
+	<stdarg.h>
+	<stdint.h>
+	"b2_common.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_types.h
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_api.h
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_common.h
+	"b2_settings.h"
+	<stddef.h>
+	<assert.h>
+	<float.h>
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_draw.h
+	"b2_api.h"
+	"b2_math.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_math.h
+	<math.h>
+	"b2_api.h"
+	"b2_settings.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_timer.h
+	"b2_api.h"
+	"b2_settings.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_chain_shape.h
+	"b2_api.h"
+	"b2_shape.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_shape.h
+	"b2_api.h"
+	"b2_math.h"
+	"b2_collision.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_collision.h
+	<limits.h>
+	"b2_api.h"
+	"b2_math.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_circle_shape.h
+	"b2_api.h"
+	"b2_shape.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_edge_shape.h
+	"b2_api.h"
+	"b2_shape.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_polygon_shape.h
+	"b2_api.h"
+	"b2_shape.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_broad_phase.h
+	"b2_api.h"
+	"b2_settings.h"
+	"b2_collision.h"
+	"b2_dynamic_tree.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_dynamic_tree.h
+	"b2_api.h"
+	"b2_collision.h"
+	"b2_growable_stack.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_growable_stack.h
+	<string.h>
+	"b2_settings.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_body.h
+	"b2_api.h"
+	"b2_math.h"
+	"b2_shape.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_contact.h
+	"b2_api.h"
+	"b2_collision.h"
+	"b2_fixture.h"
+	"b2_math.h"
+	"b2_shape.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_fixture.h
+	"b2_api.h"
+	"b2_body.h"
+	"b2_collision.h"
+	"b2_shape.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_time_step.h
+	"b2_api.h"
+	"b2_math.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_world.h
+	"b2_api.h"
+	"b2_block_allocator.h"
+	"b2_contact_manager.h"
+	"b2_math.h"
+	"b2_stack_allocator.h"
+	"b2_time_step.h"
+	"b2_world_callbacks.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_block_allocator.h
+	"b2_api.h"
+	"b2_settings.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_contact_manager.h
+	"b2_api.h"
+	"b2_broad_phase.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_stack_allocator.h
+	"b2_api.h"
+	"b2_settings.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_world_callbacks.h
+	"b2_api.h"
+	"b2_settings.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_distance_joint.h
+	"b2_api.h"
+	"b2_joint.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_joint.h
+	"b2_api.h"
+	"b2_math.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_friction_joint.h
+	"b2_api.h"
+	"b2_joint.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_gear_joint.h
+	"b2_joint.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_motor_joint.h
+	"b2_api.h"
+	"b2_joint.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_mouse_joint.h
+	"b2_api.h"
+	"b2_joint.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_prismatic_joint.h
+	"b2_api.h"
+	"b2_joint.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_pulley_joint.h
+	"b2_api.h"
+	"b2_joint.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_revolute_joint.h
+	"b2_api.h"
+	"b2_joint.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_weld_joint.h
+	"b2_api.h"
+	"b2_joint.h"
+
+1602979774 /home/patrick/TilesAdventure/@dependencies/box2d/include/box2d/b2_wheel_joint.h
+	"b2_api.h"
+	"b2_joint.h"
+
+1668346925 /home/patrick/TilesAdventure//physics/physics.h
+	<SDL2/SDL.h>
+	<box2d/box2d.h>
+	"core/geometry/geometry.h"
+
+1668325259 source:/home/patrick/TilesAdventure/physics/physics.cpp
+	"physics.h"
+
+1668346925 /home/patrick/TilesAdventure/physics/physics.h
+	<SDL2/SDL.h>
+	<box2d/box2d.h>
+	"core/geometry/geometry.h"
 
